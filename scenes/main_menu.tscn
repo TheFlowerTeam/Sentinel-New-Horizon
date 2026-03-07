@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://eoxljb7e4155"]
+
+[ext_resource type="Texture2D" uid="uid://cwqbtm2t22w5j" path="res://assets/neon-city.jpg" id="1_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://cftetucsn5153" path="res://assets/logo.png" id="1_l6cm7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bqqt6"]
+texture = ExtResource("1_ekxnf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wu84c"]
+texture = ExtResource("1_l6cm7")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vue75"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 90
+corner_radius_top_right = 90
+corner_radius_bottom_right = 90
+corner_radius_bottom_left = 90
+corner_detail = 20
+shadow_size = 6
+shadow_offset = Vector2(2.5, 2.5)
+anti_aliasing_size = 1.099
+
+[node name="MainMenu" type="Control" unique_id=1895577061]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="." unique_id=2051492633]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_bqqt6")
+
+[node name="Logo" type="Panel" parent="." unique_id=1078900762]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 145.0
+offset_right = 416.0
+offset_bottom = 515.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_wu84c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=245990474]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -179.5
+offset_right = 479.5
+offset_bottom = 179.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=1194293909]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
+text = "Start"
+
+[node name="Exit" type="Button" parent="VBoxContainer" unique_id=505478431]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
+text = "Exit
+"
+
+[node name="Settings" type="Button" parent="VBoxContainer" unique_id=397525217]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
+text = "Settings"
