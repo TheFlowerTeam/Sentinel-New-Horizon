@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bpoo4360t1her"]
+
+[ext_resource type="Texture2D" uid="uid://bt47vbh3ajyhq" path="res://assets/bg_kontynuuj.png" id="1_alddd"]
+[ext_resource type="Script" uid="uid://u7bss4sp1r62" path="res://scenes/main_menu_kontynuuj.gd" id="1_jlw6t"]
+[ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="3_wisws"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6rsth"]
+texture = ExtResource("1_alddd")
+
+[node name="Kontynuuj" type="Control" unique_id=883117401]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jlw6t")
+
+[node name="Background" type="Panel" parent="." unique_id=1254388119]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6rsth")
+
+[node name="Przycisk_Wyjscie" type="Button" parent="Background" unique_id=1373292430]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -78.0
+offset_top = 32.0
+offset_right = 78.0
+offset_bottom = 94.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.827451, 0.32156864, 0.29803923, 1)
+theme_override_fonts/font = ExtResource("3_wisws")
+theme_override_font_sizes/font_size = 41
+text = "Wyjście"
+flat = true

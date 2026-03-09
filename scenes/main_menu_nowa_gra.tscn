@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://5547qqccmsm3"]
+
+[ext_resource type="Script" uid="uid://4k0j2sydtf2i" path="res://scenes/main_menu_nowa_gra.gd" id="1_b4kph"]
+[ext_resource type="Texture2D" uid="uid://dep7f0kc1eio2" path="res://assets/bg_nowa_gra.png" id="1_dmb7y"]
+[ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="3_70xyi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qdakt"]
+texture = ExtResource("1_dmb7y")
+
+[node name="Nowa Gra" type="Control" unique_id=42322598]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b4kph")
+
+[node name="Background" type="Panel" parent="." unique_id=1514553044]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_qdakt")
+
+[node name="Przycisk_Wyjscie" type="Button" parent="Background" unique_id=1977543804]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -78.0
+offset_top = 32.0
+offset_right = 78.0
+offset_bottom = 94.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.827451, 0.32156864, 0.29803923, 1)
+theme_override_fonts/font = ExtResource("3_70xyi")
+theme_override_font_sizes/font_size = 41
+text = "Wyjście"
+flat = true
