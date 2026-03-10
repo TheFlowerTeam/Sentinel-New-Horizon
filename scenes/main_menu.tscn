@@ -1,26 +1,21 @@
 [gd_scene format=3 uid="uid://eoxljb7e4155"]
 
-[ext_resource type="Texture2D" uid="uid://duva8g248nwh4" path="res://assets/menu/main.png" id="2_wu84c"]
-[ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="3_8ln24"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bqqt6"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqqt6"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wu84c"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wu84c"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vue75"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 90
+corner_radius_top_right = 90
+corner_radius_bottom_right = 90
+corner_radius_bottom_left = 90
+corner_detail = 20
+shadow_size = 6
+shadow_offset = Vector2(2.5, 2.5)
+anti_aliasing_size = 1.099
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ln24"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rtw2f"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oa1go"]
-
-[sub_resource type="Theme" id="Theme_bqqt6"]
-VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_bqqt6")
-VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_wu84c")
-VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_8ln24")
-VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_rtw2f")
-VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_oa1go")
-
-[node name="MainMenu" type="Control" unique_id=852300314]
+[node name="MainMenu" type="Control" unique_id=1895577061]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,81 +23,60 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1374165007]
+[node name="Background" type="Panel" parent="." unique_id=2051492633]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_wu84c")
-expand_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_bqqt6")
 
-[node name="MainButtons" type="VBoxContainer" parent="." unique_id=1693686918]
+[node name="Logo" type="Panel" parent="." unique_id=1078900762]
 layout_mode = 0
-offset_left = 107.0
-offset_top = 200.0
-offset_right = 322.0
-offset_bottom = 602.0
-theme_override_constants/separation = 15
+offset_left = 46.0
+offset_top = 145.0
+offset_right = 416.0
+offset_bottom = 515.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_wu84c")
 
-[node name="NowaGra" type="Button" parent="MainButtons" unique_id=1761248478]
-unique_name_in_owner = true
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=245990474]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -179.5
+offset_right = 479.5
+offset_bottom = 179.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=1194293909]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0.827451, 0.32156864, 0.29803923, 1)
-theme_override_fonts/font = ExtResource("3_8ln24")
-theme_override_font_sizes/font_size = 28
-text = "NOWA GRA"
-
-[node name="Kontynuuj" type="Button" parent="MainButtons" unique_id=2008007924]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0.827451, 0.32156864, 0.29803923, 1)
-theme_override_fonts/font = ExtResource("3_8ln24")
-theme_override_font_sizes/font_size = 28
-text = "KONTYNUJ"
-
-[node name="Ustawienia" type="Button" parent="MainButtons" unique_id=1647148102]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0.827451, 0.32156864, 0.29803923, 1)
-theme_override_fonts/font = ExtResource("3_8ln24")
-theme_override_font_sizes/font_size = 28
-text = "USTAWIENIA"
-
-[node name="Autorzy" type="Button" parent="MainButtons" unique_id=197961723]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0.827451, 0.32156864, 0.29803923, 1)
-theme_override_fonts/font = ExtResource("3_8ln24")
-theme_override_font_sizes/font_size = 28
-text = "AUTORZY"
-
-[node name="Wyjscie" type="Button" parent="MainButtons" unique_id=1155104570]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0.827451, 0.32156864, 0.29803923, 1)
-theme_override_fonts/font = ExtResource("3_8ln24")
-theme_override_font_sizes/font_size = 28
-text = "WYJŚCIE"
-
-[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1513246800]
-layout_mode = 0
-offset_left = 736.0
-offset_top = 222.0
-offset_right = 1042.0
-offset_bottom = 488.0
-theme = SubResource("Theme_bqqt6")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=456469784]
-layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
+text = "Start"
 
-[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer" unique_id=1123607792]
+[node name="Exit" type="Button" parent="VBoxContainer" unique_id=505478431]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
+text = "Exit
+"
+
+[node name="Settings" type="Button" parent="VBoxContainer" unique_id=397525217]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
+text = "Settings"
