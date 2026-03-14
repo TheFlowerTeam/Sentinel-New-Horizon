@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://otgrjibn6gqo"]
+
+[ext_resource type="Texture2D" uid="uid://cvensvoo8ae3g" path="res://assets/assets/shop-icon.svg" id="1_ahhtf"]
+[ext_resource type="Texture2D" uid="uid://b0q4sykan1u0t" path="res://assets/assets/shop-icon-hover.svg" id="2_oo0fn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oo0fn"]
+texture = ExtResource("1_ahhtf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5ysmq"]
+texture = ExtResource("2_oo0fn")
+
+[node name="HUD" type="CanvasLayer" unique_id=1423471652]
+
+[node name="Container" type="Container" parent="." unique_id=1835397534]
+offset_left = 10.0
+offset_top = 891.0
+offset_right = 870.0
+offset_bottom = 1060.0
+
+[node name="Button" type="Button" parent="Container" unique_id=41770226]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_oo0fn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_5ysmq")
+icon = ExtResource("1_ahhtf")
+flat = true
