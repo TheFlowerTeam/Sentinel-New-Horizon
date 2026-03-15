@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="474.98944"
+   height="124.41665"
+   viewBox="0 0 125.67429 32.918572"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   sodipodi:docname="day-counter.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     showguides="true"
+     inkscape:zoom="1.9189071"
+     inkscape:cx="53.415822"
+     inkscape:cy="204.54351"
+     inkscape:window-width="1908"
+     inkscape:window-height="1023"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <sodipodi:guide
+       position="-4.2916665,284.75"
+       orientation="0,1"
+       id="guide1"
+       inkscape:locked="false"
+       inkscape:label=""
+       inkscape:color="rgb(0,134,229)" />
+    <sodipodi:guide
+       position="519.58333,290.04167"
+       orientation="1080,0"
+       id="guide2"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="519.58333,4.2916703"
+       orientation="0,-1980"
+       id="guide3"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="1.0000002,4.2916703"
+       orientation="-1,0"
+       id="guide4"
+       inkscape:locked="false"
+       inkscape:label=""
+       inkscape:color="rgb(0,134,229)" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect7"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,2.6458333,0,1 @ F,0,0,1,0,2.6458333,0,1 @ F,0,0,1,0,2.6458333,0,1 @ F,0,0,1,0,2.6458333,0,1"
+       radius="10"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+  </defs>
+  <g
+     inkscape:label="Warstwa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-4.2916665,-4.2916703)">
+    <path
+       style="fill:#542034;fill-opacity:1;stroke:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:87.1374;stroke-opacity:1;paint-order:normal"
+       id="rect7"
+       width="123.67429"
+       height="30.918571"
+       x="5.2916665"
+       y="5.2916703"
+       inkscape:path-effect="#path-effect7"
+       sodipodi:type="rect"
+       d="m 7.9374998,5.2916703 118.3826302,0 a 2.6458333,2.6458333 45 0 1 2.64583,2.6458333 V 33.564408 a 2.6458333,2.6458333 135 0 1 -2.64583,2.645834 l -118.3826302,0 A 2.6458333,2.6458333 45 0 1 5.2916665,33.564408 V 7.9375036 A 2.6458333,2.6458333 135 0 1 7.9374998,5.2916703 Z" />
+  </g>
+</svg>

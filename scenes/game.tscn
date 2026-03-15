@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dyk7w858jcfaa" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://cb1pqjk22iyc4" path="res://assets/map/map.png" id="1_yqjtg"]
-[ext_resource type="Texture2D" uid="uid://dhkyimepundcf" path="res://assets/assets/rain.png" id="2_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://vwlgpxn5w7mh" path="res://assets/assets/rain.png" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://otgrjibn6gqo" path="res://scenes/hud.tscn" id="3_lbhrr"]
 
 [sub_resource type="GDScript" id="GDScript_uwrxv"]
@@ -59,7 +59,7 @@ SLIDE_SPEED = 1500.0
 [node name="HUD" parent="Camera" unique_id=1423471652 instance=ExtResource("3_lbhrr")]
 
 [node name="Rain" type="CPUParticles2D" parent="." unique_id=912313755]
-position = Vector2(-2629, -3979)
+position = Vector2(-2577, -4068)
 scale = Vector2(1.5509131, 0.37844276)
 amount = 150
 texture = ExtResource("2_yqjtg")
