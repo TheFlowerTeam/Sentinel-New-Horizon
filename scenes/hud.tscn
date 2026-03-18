@@ -2,12 +2,29 @@
 
 [ext_resource type="Texture2D" uid="uid://dyd1p8pbecpel" path="res://assets/assets/icons/upgrades/shop-icon.svg" id="1_ahhtf"]
 [ext_resource type="Texture2D" uid="uid://b6ij5fyq4ve2j" path="res://assets/assets/icons/day_counter.svg" id="1_hd3ao"]
+[ext_resource type="Texture2D" uid="uid://bumfabs08nwka" path="res://assets/assets/icons/clock_under.svg" id="2_0m4u7"]
 [ext_resource type="Texture2D" uid="uid://cq678nb8vxl75" path="res://assets/assets/icons/upgrades/shop-icon-pressed.svg" id="2_5ysmq"]
 [ext_resource type="Texture2D" uid="uid://ctj7vl2i2udxa" path="res://assets/assets/icons/upgrades/shop-icon-hover.svg" id="2_oo0fn"]
+[ext_resource type="Texture2D" uid="uid://c6nepnm7sgfju" path="res://assets/assets/icons/clock_over.svg" id="3_apjy4"]
+[ext_resource type="Texture2D" uid="uid://doyr77rmvhvdp" path="res://assets/assets/icons/clock_progress.svg" id="4_5n1hp"]
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="5_uo2fv"]
 [ext_resource type="Texture2D" uid="uid://bywvuwbxb3cgg" path="res://assets/assets/icons/settings/settings.svg" id="6_hd3ao"]
 [ext_resource type="Texture2D" uid="uid://dklt4jqk5kj72" path="res://assets/assets/icons/settings/settings-pressed.svg" id="7_0i1j5"]
 [ext_resource type="Texture2D" uid="uid://nalndvqkd636" path="res://assets/assets/icons/settings/settings-hover.svg" id="8_mphia"]
+
+[sub_resource type="GDScript" id="GDScript_0m4u7"]
+script/source = "extends TextureRect
+
+@onready var clock = %TextureProgressBar
+@export var DAY_TIME:int
+var game_time = 0.0
+
+func _process(delta: float) -> void:
+	game_time += delta
+	clock.value = game_time
+	if game_time > DAY_TIME:
+		game_time = 0
+"
 
 [node name="HUD" type="CanvasLayer" unique_id=1423471652]
 
@@ -20,6 +37,26 @@ offset_right = 659.0
 offset_bottom = 222.0
 texture = ExtResource("1_hd3ao")
 stretch_mode = 2
+script = SubResource("GDScript_0m4u7")
+DAY_TIME = 20
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="DayCounter/Bar" unique_id=214539167]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.437
+anchor_top = 0.5
+anchor_right = 0.437
+anchor_bottom = 0.5
+offset_left = -260.085
+offset_top = -70.5
+offset_right = -123.08499
+offset_bottom = 66.5
+step = 0.1
+fill_mode = 4
+texture_under = ExtResource("2_0m4u7")
+texture_over = ExtResource("3_apjy4")
+texture_progress = ExtResource("4_5n1hp")
 
 [node name="Day" type="Label" parent="DayCounter/Bar" unique_id=1942784623]
 layout_mode = 1
@@ -28,10 +65,10 @@ anchor_left = 0.018000001
 anchor_top = 0.068
 anchor_right = 0.018000001
 anchor_bottom = 0.068
-offset_left = 109.208374
-offset_top = 24.475567
-offset_right = 568.52466
-offset_bottom = 157.47556
+offset_left = 123.31
+offset_top = 27.564
+offset_right = 582.6263
+offset_bottom = 160.564
 theme_override_colors/font_shadow_color = Color(0.07058824, 0.23137255, 0.42745098, 0.6784314)
 theme_override_constants/shadow_offset_x = 5
 theme_override_constants/shadow_offset_y = 3
