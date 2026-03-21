@@ -40,6 +40,22 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_mphia")
 
+[node name="Label" type="Label" parent="Overlay" unique_id=920864114]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -169.78253
+offset_top = -5.405266
+offset_right = 173.88062
+offset_bottom = 55.749268
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_uo2fv")
+theme_override_font_sizes/font_size = 48
+text = "City: Lorem Ipsum"
+horizontal_alignment = 1
+uppercase = true
+
 [node name="Bar" type="TextureRect" parent="." unique_id=329981727]
 offset_left = 40.0
 offset_top = -19.400024
