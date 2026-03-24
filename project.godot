@@ -14,6 +14,10 @@ config/name="Sentinel:NewHorizons"
 run/main_scene="uid://cbt4futvdti7b"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
+[autoload]
+
+GameEvents="*uid://dvcpvx6nvxko5"
+
 [display]
 
 window/size/viewport_width=1920

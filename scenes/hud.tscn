@@ -17,7 +17,9 @@
 script/source = "extends Popup
 
 func _on_shop_pressed() -> void:
+	GameEvents.menu_switched.emit(!get_tree().paused)
 	self.show()
+	
 "
 
 [sub_resource type="GDScript" id="GDScript_0m4u7"]
@@ -36,6 +38,7 @@ func _process(delta: float) -> void:
 "
 
 [node name="HUD" type="CanvasLayer" unique_id=1423471652]
+process_mode = 3
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=508719458]
 stream = ExtResource("1_0m4u7")
@@ -99,6 +102,7 @@ stretch_mode = 3
 script = SubResource("GDScript_apjy4")
 
 [node name="Bar" type="TextureRect" parent="." unique_id=329981727]
+process_mode = 1
 offset_left = 40.0
 offset_top = -19.400024
 offset_right = 604.0
