@@ -26,6 +26,10 @@ material = SubResource("ShaderMaterial_0vea8")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 14.928238
+offset_top = -2.3325348
+offset_right = 14.928223
+offset_bottom = -2.3325195
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -53,3 +57,24 @@ offset_bottom = 106.5
 texture_normal = ExtResource("3_bgjg7")
 stretch_mode = 0
 script = ExtResource("4_48ojb")
+
+[node name="Control" type="Control" parent="." unique_id=996983941]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 129.5
+offset_top = 129.5
+offset_right = 1790.5
+offset_bottom = 950.5
+
+[node name="Main" type="VBoxContainer" parent="Control" unique_id=800029178]
+layout_mode = 0
+offset_right = 1661.0
+offset_bottom = 813.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Main" unique_id=898595240]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Main" unique_id=1461897962]
+layout_mode = 2
+size_flags_vertical = 3
