@@ -92,7 +92,6 @@ theme_override_constants/separation = 10
 
 [node name="Master" parent="Menu/Control/MarginContainer/Main/SoundSliders/MarginContainer/Box" unique_id=1254362795 instance=ExtResource("5_lwwgp")]
 layout_mode = 2
-text = "Master"
 BUS = "Master"
 
 [node name="Music SFX" type="HBoxContainer" parent="Menu/Control/MarginContainer/Main/SoundSliders/MarginContainer/Box" unique_id=1430454615]
@@ -102,12 +101,10 @@ theme_override_constants/separation = 10
 
 [node name="Music" parent="Menu/Control/MarginContainer/Main/SoundSliders/MarginContainer/Box/Music SFX" unique_id=223638659 instance=ExtResource("5_lwwgp")]
 layout_mode = 2
-text = "Music"
 BUS = "Music"
 
 [node name="SFX" parent="Menu/Control/MarginContainer/Main/SoundSliders/MarginContainer/Box/Music SFX" unique_id=1637332581 instance=ExtResource("5_lwwgp")]
 layout_mode = 2
-text = "SFX"
 BUS = "SFX"
 
 [node name="2Rows" type="HBoxContainer" parent="Menu/Control/MarginContainer/Main" unique_id=483923962]
@@ -138,11 +135,8 @@ default = true
 
 [node name="OptionSwitch2" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=1169727777 instance=ExtResource("5_48ojb")]
 layout_mode = 2
-settings = "v-sync"
+settings = "V-Sync"
 default = true
-
-[node name="OptionSwitch3" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=863307188 instance=ExtResource("5_48ojb")]
-layout_mode = 2
 
 [node name="OptionSwitch5" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=1944865202 instance=ExtResource("5_48ojb")]
 layout_mode = 2
