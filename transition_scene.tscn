@@ -1,6 +1,7 @@
-[gd_scene format=3 uid="uid://yjc0bg83ii6e"]
+[gd_scene format=3 uid="uid://b4udost83orvj"]
 
-[ext_resource type="Script" uid="uid://bqle6o2c7qdsj" path="res://transition_scene.gd" id="1_6hpjq"]
+[sub_resource type="Resource" id="Resource_jh5ex"]
+metadata/__load_path__ = "res://transition_scene.gd"
 
 [sub_resource type="Animation" id="Animation_a7egq"]
 length = 0.001
@@ -57,7 +58,7 @@ _data = {
 }
 
 [node name="transition_scene" type="CanvasLayer" unique_id=1620633364]
-script = ExtResource("1_6hpjq")
+script = SubResource("Resource_jh5ex")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=745864072]
 modulate = Color(0, 0, 0, 0)

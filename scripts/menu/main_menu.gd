@@ -18,16 +18,16 @@ func _ready() -> void:
 
 
 func _on_nowa_gra_pressed() -> void:
-	TransitionScene.fade_to_scene("res://scenes/main_menu_nowa_gra.tscn")
+	TransitionScene.fade_to_scene("res://scenes/menu/main_menu_nowa_gra.tscn")
 
 func _on_kontynuuj_pressed() -> void:
-	TransitionScene.fade_to_scene("res://scenes/main_menu_kontynuuj.tscn")
+	TransitionScene.fade_to_scene("res://scenes/menu/main_menu_kontynuuj.tscn")
 
 func _on_ustawienia_pressed() -> void:
-	TransitionScene.fade_to_scene("res://scenes/main_menu_ustawienia.tscn")
+	TransitionScene.fade_to_scene("res://scenes/menu/main_menu_ustawienia.tscn")
 
 func _on_autorzy_pressed() -> void:
-	TransitionScene.fade_to_scene("res://scenes/main_menu_autorzy.tscn")
+	TransitionScene.fade_to_scene("res://scenes/menu/main_menu_autorzy.tscn")
 
 func _on_wyjscie_pressed() -> void:
 	get_tree().quit()
