@@ -21,6 +21,7 @@ popup/item_0/text = "name"
 popup/item_0/id = 0
 popup/item_1/text = "surname"
 popup/item_1/id = 1
+popup/item_2/text = "id"
 popup/item_2/id = 2
 
 [node name="Character2" type="OptionButton" parent="." unique_id=1549900935]
