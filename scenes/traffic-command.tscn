@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://dewdf3xvaxxxv"]
 
-[ext_resource type="Script" uid="uid://btqekf5tyrf5u" path="res://scripts/traffic command/Manager.gd" id="1_ym1ef"]
+[ext_resource type="Script" uid="uid://btqekf5tyrf5u" path="res://scripts/traffic command/VehicleManager.gd" id="1_ym1ef"]
 [ext_resource type="Texture2D" uid="uid://d27mc4wlkobj3" path="res://assets/map/road.jpg" id="1_ymhas"]
 [ext_resource type="Script" uid="uid://e5atn1k4dx7j" path="res://scripts/traffic command/Path_follow.gd" id="2_co0fe"]
 [ext_resource type="Texture2D" uid="uid://dhofbwk64v71l" path="res://assets/assets/car.png" id="2_xbsf2"]
 [ext_resource type="Script" uid="uid://d3v37anq3awfc" path="res://scripts/traffic command/Area2D.gd" id="3_avl7u"]
 [ext_resource type="Script" uid="uid://c6lpnm060pb1c" path="res://scripts/traffic command/Path_line.gd" id="3_p3o70"]
+[ext_resource type="Script" uid="uid://8vvjc64m33vq" path="res://scripts/traffic command/Menu/MenuManager.gd" id="7_ng7uf"]
+[ext_resource type="FontFile" uid="uid://cb7am2tdu8esl" path="res://assets/fonts/Coolvetica Hv Comp.otf" id="8_o80tv"]
 
 [sub_resource type="Curve2D" id="Curve2D_ym1ef"]
 _data = {
@@ -27,6 +29,14 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -65.34078, -557.6187, 0, 0, 0, 0, -64.2386, -206.61897, -260.2279, -0.13490593, 260.2279, 0.13490593, 178.26631, 43.933147, 0, 0, 0, 0, 487.26672, 43.082504)
 }
 point_count = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_wgtu0"]
+font = ExtResource("8_o80tv")
+font_size = 50
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 18
+shadow_color = Color(0, 0, 0, 0.5294118)
 
 [node name="MiniGame" type="Node2D" unique_id=1380433955]
 
@@ -166,3 +176,35 @@ position = Vector2(-65.34078, -557.6187)
 rotation = 1.5676563
 script = ExtResource("2_co0fe")
 stop_points = Array[float]([0.2])
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1526136779]
+
+[node name="Menu" type="Control" parent="." unique_id=1989368409]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_ng7uf")
+
+[node name="Timer" type="Timer" parent="Menu" unique_id=1641507090]
+autostart = true
+
+[node name="TimerLabel" type="Label" parent="Menu" unique_id=1282546234]
+layout_mode = 0
+offset_left = -516.0
+offset_top = -493.0
+offset_right = -322.0
+offset_bottom = -441.0
+text = "TimerLabel"
+label_settings = SubResource("LabelSettings_wgtu0")
+
+[node name="VehicleNumberLabel" type="Label" parent="Menu" unique_id=572856427]
+layout_mode = 0
+offset_left = -518.0
+offset_top = -440.0
+offset_right = -324.0
+offset_bottom = -383.0
+text = "VehicleNumberLabel"
+label_settings = SubResource("LabelSettings_wgtu0")
+
+[connection signal="timeout" from="Menu/Timer" to="Left" method="_on_timer_timeout"]

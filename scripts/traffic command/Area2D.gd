@@ -22,5 +22,4 @@ func _input_event(_viewport, event, _shape_idx) -> void:
 	if not clickable:
 		return
 	if event is InputEventMouseButton and event.pressed:
-		print("Kliknięto!")
 		emit_signal("clicked")

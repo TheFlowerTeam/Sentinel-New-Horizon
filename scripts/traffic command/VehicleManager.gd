@@ -28,7 +28,7 @@ func _ready() -> void:
 func _pick_random() -> void:
 	if active_index != -1:
 		all_paths[active_index].hide_path()
-	
+		
 		if active_follower.reached_stop.is_connected(_on_reached_stop):
 			active_follower.reached_stop.disconnect(_on_reached_stop)
 		if active_follower.route_finished.is_connected(_on_route_finished):
