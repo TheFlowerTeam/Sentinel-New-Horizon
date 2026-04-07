@@ -1,21 +1,17 @@
 extends Node2D
 
-#Left
 @onready var k1_followers = [$Left/Path2D_1/PathFollow2D, $Left/Path2D_2/PathFollow2D, $Left/Path2D_3/PathFollow2D]
 @onready var k1_paths = [$Left/Path2D_1, $Left/Path2D_2, $Left/Path2D_3]
 @onready var k1_vehicle = $Left/Path2D_1/PathFollow2D/Node2D
 
-#Down
 @onready var k2_followers = [$Down/Path2D_1/PathFollow2D, $Down/Path2D_2/PathFollow2D, $Down/Path2D_3/PathFollow2D]
 @onready var k2_paths = [$Down/Path2D_1, $Down/Path2D_2, $Down/Path2D_3]
 @onready var k2_vehicle = $Down/Path2D_1/PathFollow2D/Node2D
 
-#Right
 @onready var k3_followers = [$Right/Path2D_1/PathFollow2D, $Right/Path2D_2/PathFollow2D, $Right/Path2D_3/PathFollow2D]
 @onready var k3_paths = [$Right/Path2D_1, $Right/Path2D_2, $Right/Path2D_3]
 @onready var k3_vehicle = $Right/Path2D_1/PathFollow2D/Node2D
 
-#Up
 @onready var k4_followers = [$Up/Path2D_1/PathFollow2D, $Up/Path2D_2/PathFollow2D, $Up/Path2D_3/PathFollow2D]
 @onready var k4_paths = [$Up/Path2D_1, $Up/Path2D_2, $Up/Path2D_3]
 @onready var k4_vehicle = $Up/Path2D_1/PathFollow2D/Node2D

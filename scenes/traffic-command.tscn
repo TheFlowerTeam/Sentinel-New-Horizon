@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://dewdf3xvaxxxv"]
 
-[ext_resource type="Script" uid="uid://btqekf5tyrf5u" path="res://scripts/traffic command/GameManager.gd" id="1_ym1ef"]
+[ext_resource type="Script" uid="uid://btqekf5tyrf5u" path="res://scripts/Traffic Command/GameManager.gd" id="1_ym1ef"]
 [ext_resource type="Texture2D" uid="uid://dbtr75ni5t2qw" path="res://assets/map/road.jpg" id="1_ymhas"]
-[ext_resource type="Script" uid="uid://e5atn1k4dx7j" path="res://scripts/traffic command/Path_follow.gd" id="2_co0fe"]
-[ext_resource type="Texture2D" uid="uid://dhofbwk64v71l" path="res://assets/assets/car.png" id="2_xbsf2"]
-[ext_resource type="Script" uid="uid://d3v37anq3awfc" path="res://scripts/traffic command/Area2D.gd" id="3_avl7u"]
-[ext_resource type="Script" uid="uid://c6lpnm060pb1c" path="res://scripts/traffic command/Path_line.gd" id="3_p3o70"]
-[ext_resource type="Script" uid="uid://8vvjc64m33vq" path="res://scripts/traffic command/Menu/MenuManager.gd" id="7_ng7uf"]
+[ext_resource type="Script" uid="uid://e5atn1k4dx7j" path="res://scripts/Traffic Command/Path_follow.gd" id="2_co0fe"]
+[ext_resource type="Script" uid="uid://d3v37anq3awfc" path="res://scripts/Traffic Command/Area2D.gd" id="3_avl7u"]
+[ext_resource type="Script" uid="uid://c6lpnm060pb1c" path="res://scripts/Traffic Command/Path_line.gd" id="3_p3o70"]
+[ext_resource type="Texture2D" uid="uid://brinberm23ana" path="res://assets/assets/Traffic Command/car1.png" id="5_o80tv"]
+[ext_resource type="Script" uid="uid://8vvjc64m33vq" path="res://scripts/Traffic Command/Menu/MenuManager.gd" id="7_ng7uf"]
 [ext_resource type="FontFile" uid="uid://cb7am2tdu8esl" path="res://assets/fonts/Coolvetica Hv Comp.otf" id="8_o80tv"]
 
 [sub_resource type="Curve2D" id="Curve2D_ym1ef"]
@@ -62,6 +62,7 @@ curve = SubResource("Curve2D_ym1ef")
 script = ExtResource("3_p3o70")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Left/Path2D_1" unique_id=1896939417]
+position = Vector2(-65.42549, -557.03687)
 rotation = 1.5707963
 script = ExtResource("2_co0fe")
 stop_points = Array[float]([0.25])
@@ -75,7 +76,7 @@ scale = Vector2(0.9915965, 1.013921)
 rotation = 3.1415927
 scale = Vector2(0.5779144, 0.54023343)
 skew = -0.0004453659
-texture = ExtResource("2_xbsf2")
+texture = ExtResource("5_o80tv")
 
 [node name="Area2D" type="Area2D" parent="Left/Path2D_1/PathFollow2D/Node2D" unique_id=1180612574]
 rotation = 1.5707964
@@ -96,6 +97,7 @@ curve = SubResource("Curve2D_avl7u")
 script = ExtResource("3_p3o70")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Left/Path2D_2" unique_id=319670935]
+position = Vector2(-65.45455, -559.0909)
 rotation = 1.5707964
 script = ExtResource("2_co0fe")
 stop_points = Array[float]([0.2])
@@ -105,6 +107,7 @@ curve = SubResource("Curve2D_p3o70")
 script = ExtResource("3_p3o70")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Left/Path2D_3" unique_id=613326317]
+position = Vector2(-65.45455, -556.36365)
 rotation = 1.5707964
 script = ExtResource("2_co0fe")
 stop_points = Array[float]([0.2])
@@ -121,6 +124,7 @@ curve = SubResource("Curve2D_ym1ef")
 script = ExtResource("3_p3o70")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Down/Path2D_1" unique_id=1388163434]
+position = Vector2(-65.42549, -557.03687)
 rotation = 1.5707963
 script = ExtResource("2_co0fe")
 stop_points = Array[float]([0.25])
@@ -134,7 +138,7 @@ scale = Vector2(0.9915965, 1.013921)
 rotation = 3.1415927
 scale = Vector2(0.5779144, 0.54023343)
 skew = -0.0004453659
-texture = ExtResource("2_xbsf2")
+texture = ExtResource("5_o80tv")
 
 [node name="Area2D" type="Area2D" parent="Down/Path2D_1/PathFollow2D/Node2D" unique_id=2124220730]
 rotation = 1.5707964
@@ -155,6 +159,7 @@ curve = SubResource("Curve2D_avl7u")
 script = ExtResource("3_p3o70")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Down/Path2D_2" unique_id=282894095]
+position = Vector2(-65.45455, -559.0909)
 rotation = 1.5707964
 script = ExtResource("2_co0fe")
 stop_points = Array[float]([0.2])
@@ -164,6 +169,7 @@ curve = SubResource("Curve2D_p3o70")
 script = ExtResource("3_p3o70")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Down/Path2D_3" unique_id=1756183145]
+position = Vector2(-65.45455, -556.36365)
 rotation = 1.5707964
 script = ExtResource("2_co0fe")
 stop_points = Array[float]([0.2])
@@ -180,6 +186,7 @@ curve = SubResource("Curve2D_ym1ef")
 script = ExtResource("3_p3o70")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Right/Path2D_1" unique_id=797430382]
+position = Vector2(-65.42549, -557.03687)
 rotation = 1.5707963
 script = ExtResource("2_co0fe")
 stop_points = Array[float]([0.25])
@@ -193,7 +200,7 @@ scale = Vector2(0.9915965, 1.013921)
 rotation = 3.1415927
 scale = Vector2(0.5779144, 0.54023343)
 skew = -0.0004453659
-texture = ExtResource("2_xbsf2")
+texture = ExtResource("5_o80tv")
 
 [node name="Area2D" type="Area2D" parent="Right/Path2D_1/PathFollow2D/Node2D" unique_id=967983409]
 rotation = 1.5707964
@@ -214,6 +221,7 @@ curve = SubResource("Curve2D_avl7u")
 script = ExtResource("3_p3o70")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Right/Path2D_2" unique_id=1639830290]
+position = Vector2(-65.45455, -559.0909)
 rotation = 1.5707964
 script = ExtResource("2_co0fe")
 stop_points = Array[float]([0.2])
@@ -223,6 +231,7 @@ curve = SubResource("Curve2D_p3o70")
 script = ExtResource("3_p3o70")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Right/Path2D_3" unique_id=1472682494]
+position = Vector2(-65.45455, -556.36365)
 rotation = 1.5707964
 script = ExtResource("2_co0fe")
 stop_points = Array[float]([0.2])
@@ -238,6 +247,7 @@ curve = SubResource("Curve2D_ym1ef")
 script = ExtResource("3_p3o70")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Up/Path2D_1" unique_id=1075155450]
+position = Vector2(-65.42549, -557.03687)
 rotation = 1.5707963
 script = ExtResource("2_co0fe")
 stop_points = Array[float]([0.25])
@@ -251,7 +261,7 @@ scale = Vector2(0.9915965, 1.013921)
 rotation = 3.1415927
 scale = Vector2(0.5779144, 0.54023343)
 skew = -0.0004453659
-texture = ExtResource("2_xbsf2")
+texture = ExtResource("5_o80tv")
 
 [node name="Area2D" type="Area2D" parent="Up/Path2D_1/PathFollow2D/Node2D" unique_id=42828412]
 rotation = 1.5707964
@@ -272,6 +282,7 @@ curve = SubResource("Curve2D_avl7u")
 script = ExtResource("3_p3o70")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Up/Path2D_2" unique_id=2017760009]
+position = Vector2(-65.45455, -559.0909)
 rotation = 1.5707964
 script = ExtResource("2_co0fe")
 stop_points = Array[float]([0.2])
@@ -281,6 +292,7 @@ curve = SubResource("Curve2D_p3o70")
 script = ExtResource("3_p3o70")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Up/Path2D_3" unique_id=1829831874]
+position = Vector2(-65.45455, -556.36365)
 rotation = 1.5707964
 script = ExtResource("2_co0fe")
 stop_points = Array[float]([0.2])
