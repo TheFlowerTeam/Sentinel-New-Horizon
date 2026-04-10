@@ -1,61 +1,238 @@
 [gd_scene format=3 uid="uid://g4qxupmbxd4d"]
 
 [ext_resource type="Script" uid="uid://dioblomiwteet" path="res://scripts/minigames/airport-sec/airport_logic.gd" id="1_6uery"]
+[ext_resource type="Texture2D" uid="uid://1ysxbt1uclgd" path="res://assets/assets/airport-sec/laugne.jpg" id="2_wvxne"]
+[ext_resource type="StyleBox" uid="uid://cx80410gpkp8w" path="res://styles/new_container.tres" id="3_dlrc4"]
+[ext_resource type="StyleBox" uid="uid://jt2qhh4rpew0" path="res://styles/inner_panel.tres" id="4_l3ryl"]
+[ext_resource type="Texture2D" uid="uid://na7lyqpvpxbm" path="res://assets/assets/airport-sec/npc/male/klis.png" id="5_14rh7"]
 
-[node name="Node" type="Control" unique_id=2116161531]
-layout_mode = 3
-anchors_preset = 0
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_83weg"]
+
+[node name="Node" type="Node" unique_id=360961051]
 script = ExtResource("1_6uery")
 
-[node name="Character1" type="OptionButton" parent="." unique_id=529504236]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 2.0
-offset_right = 112.0
-offset_bottom = 33.0
+[node name="Background" type="TextureRect" parent="." unique_id=599378455]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wvxne")
+expand_mode = 1
 
-[node name="Checker" type="OptionButton" parent="." unique_id=2011980546]
-layout_mode = 0
-offset_left = 116.0
-offset_top = 1.0
-offset_right = 217.0
-offset_bottom = 32.0
-item_count = 3
-popup/item_0/text = "name"
-popup/item_0/id = 0
-popup/item_1/text = "surname"
-popup/item_1/id = 1
-popup/item_2/text = "id"
-popup/item_2/id = 2
+[node name="Control" type="Control" parent="." unique_id=1058752315]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Character2" type="OptionButton" parent="." unique_id=1549900935]
+[node name="Document" type="Panel" parent="Control" unique_id=1650745019]
 layout_mode = 0
-offset_left = 233.0
-offset_top = 7.0
-offset_right = 265.0
-offset_bottom = 27.0
+offset_left = 48.0
+offset_top = 371.0
+offset_right = 725.0
+offset_bottom = 677.0
+scale = Vector2(0.68, 0.68)
+theme_override_styles/panel = ExtResource("3_dlrc4")
 
-[node name="CorrectName" type="Label" parent="." unique_id=949623621]
+[node name="MarginContainer" type="MarginContainer" parent="Control/Document" unique_id=516018702]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Document/MarginContainer" unique_id=1952213001]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Document/MarginContainer/VBoxContainer" unique_id=155330804]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="ColorRect" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1445294313]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("4_l3ryl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/ColorRect" unique_id=112125345]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="TextureRect" type="TextureRect" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/ColorRect/MarginContainer" unique_id=929712909]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_14rh7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1939727745]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Label" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1482911724]
+layout_mode = 2
+text = "Dowód Osobisty"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=532556501]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("4_l3ryl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel" unique_id=1488157369]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="NameDocument" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer" unique_id=213342157 groups=["name"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=186121469]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("4_l3ryl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2" unique_id=1182843758]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="SurnameDocument" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer" unique_id=794129647 groups=["surname"]]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Panel3" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=356939218]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("4_l3ryl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel3" unique_id=1273767628]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="BdayDocument" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel3/MarginContainer" unique_id=1174085971 groups=["bday"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Panel4" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1075700028]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("4_l3ryl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel4" unique_id=444999836]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="IdDocument" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel4/MarginContainer" unique_id=56944457 groups=["id"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Pasport" type="Panel" parent="Control" unique_id=629419619]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 82.0
-offset_right = 47.0
-offset_bottom = 105.0
+offset_left = 45.00006
+offset_top = 154.99998
+offset_right = 722.00006
+offset_bottom = 461.0
+scale = Vector2(0.68, 0.68)
+theme_override_styles/panel = ExtResource("3_dlrc4")
 
-[node name="IncorrectName2" type="Label" parent="." unique_id=2054038677]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Pasport" unique_id=350527943]
 layout_mode = 0
-offset_left = 291.0
-offset_top = 83.0
-offset_right = 331.0
-offset_bottom = 106.0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Button" type="Button" parent="." unique_id=1153048794]
+[node name="NamePasport" type="Label" parent="Control/Pasport/VBoxContainer" unique_id=1068118152 groups=["name"]]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SurnamePasport" type="Label" parent="Control/Pasport/VBoxContainer" unique_id=914132822 groups=["surname"]]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="IdPasport" type="Label" parent="Control/Pasport/VBoxContainer" unique_id=1655025031 groups=["id"]]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Control" unique_id=229316031]
 layout_mode = 0
-offset_left = 124.0
-offset_top = 40.0
-offset_right = 169.0
-offset_bottom = 71.0
-text = "Next
-"
+offset_left = 696.0
+offset_top = 155.0
+offset_right = 745.0
+offset_bottom = 186.0
+text = "NEXT"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Node" type="Node" parent="." unique_id=1116703107]
+
+[node name="TextureNPC" type="Sprite2D" parent="Node" unique_id=332538673]
+unique_name_in_owner = true
+position = Vector2(909, 820)
+rotation = 1.5389065
+texture = SubResource("CompressedTexture2D_83weg")
+
+[node name="SoundNPC" type="AudioStreamPlayer2D" parent="Node" unique_id=1019563585]
+unique_name_in_owner = true
+position = Vector2(179, 109)
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtuqjyqf5annk"
-path="res://.godot/imported/kontynuuj.png-f62464e76d0312a5f6347457848114d0.ctex"
+uid="uid://na7lyqpvpxbm"
+path="res://.godot/imported/klis.png-526e8f1bf84183be46a145854f174901.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/menu/kontynuuj.png"
-dest_files=["res://.godot/imported/kontynuuj.png-f62464e76d0312a5f6347457848114d0.ctex"]
+source_file="res://assets/assets/airport-sec/npc/male/klis.png"
+dest_files=["res://.godot/imported/klis.png-526e8f1bf84183be46a145854f174901.ctex"]
 
 [params]
 

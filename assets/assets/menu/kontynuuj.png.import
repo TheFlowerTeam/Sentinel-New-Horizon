@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl3k7mcy833bo"
-path="res://.godot/imported/nowa_gra.png-18ad9277c9e02036dc4c6ce0d6aad409.ctex"
+uid="uid://dtuqjyqf5annk"
+path="res://.godot/imported/kontynuuj.png-235bfe48b83de20e7a652a3c86ea7045.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/menu/nowa_gra.png"
-dest_files=["res://.godot/imported/nowa_gra.png-18ad9277c9e02036dc4c6ce0d6aad409.ctex"]
+source_file="res://assets/assets/menu/kontynuuj.png"
+dest_files=["res://.godot/imported/kontynuuj.png-235bfe48b83de20e7a652a3c86ea7045.ctex"]
 
 [params]
 

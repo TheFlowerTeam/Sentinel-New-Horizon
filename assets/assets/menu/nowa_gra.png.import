@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cytjhpnofyuha"
-path="res://.godot/imported/autorzy.png-050ceb533e19eb71195770f620aa505c.ctex"
+uid="uid://cl3k7mcy833bo"
+path="res://.godot/imported/nowa_gra.png-671b7824e0db2b0dcac0436085401c82.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/menu/autorzy.png"
-dest_files=["res://.godot/imported/autorzy.png-050ceb533e19eb71195770f620aa505c.ctex"]
+source_file="res://assets/assets/menu/nowa_gra.png"
+dest_files=["res://.godot/imported/nowa_gra.png-671b7824e0db2b0dcac0436085401c82.ctex"]
 
 [params]
 
