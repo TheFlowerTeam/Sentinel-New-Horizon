@@ -35,9 +35,10 @@ var current_index: int = 0
 
 #region AdditionalFunctions
 
+@export	var categories:PackedStringArray =  ['img', 'name', 'surname', 'bday', 'id'] 
+
 func display_current_npc() -> void:
 	var npc: NPC = list[current_index]
-	var categories:PackedStringArray =  ['img', 'name', 'surname', 'bday', 'id'] 
 	for category in categories:
 		_load_category(npc, category)
 	
