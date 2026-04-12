@@ -6,8 +6,6 @@
 [ext_resource type="StyleBox" uid="uid://jt2qhh4rpew0" path="res://styles/inner_panel.tres" id="4_l3ryl"]
 [ext_resource type="Texture2D" uid="uid://na7lyqpvpxbm" path="res://assets/assets/airport-sec/npc/male/klis.png" id="5_14rh7"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_83weg"]
-
 [node name="Node" type="Node" unique_id=360961051]
 script = ExtResource("1_6uery")
 
@@ -20,6 +18,29 @@ grow_vertical = 2
 texture = ExtResource("2_wvxne")
 expand_mode = 1
 
+[node name="Node" type="Node" parent="." unique_id=1116703107]
+
+[node name="TextureNPC" type="TextureRect" parent="Node" unique_id=1120169704]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.00006
+offset_top = -231.47736
+offset_right = 372.25537
+offset_bottom = 937.4778
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6759989, 0.6759989)
+texture = ExtResource("5_14rh7")
+stretch_mode = 5
+
+[node name="SoundNPC" type="AudioStreamPlayer2D" parent="Node" unique_id=1019563585]
+unique_name_in_owner = true
+position = Vector2(179, 109)
+
 [node name="Control" type="Control" parent="." unique_id=1058752315]
 layout_mode = 3
 anchors_preset = 0
@@ -28,10 +49,10 @@ offset_bottom = 40.0
 
 [node name="Document" type="Panel" parent="Control" unique_id=1650745019]
 layout_mode = 0
-offset_left = 48.0
-offset_top = 371.0
-offset_right = 725.0
-offset_bottom = 677.0
+offset_left = 40.000004
+offset_top = 309.0
+offset_right = 717.0
+offset_bottom = 615.0
 scale = Vector2(0.68, 0.68)
 theme_override_styles/panel = ExtResource("3_dlrc4")
 
@@ -72,7 +93,8 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="TextureRect" type="TextureRect" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/ColorRect/MarginContainer" unique_id=929712909]
+[node name="ImgDocument" type="TextureRect" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/ColorRect/MarginContainer" unique_id=929712909 groups=["img"]]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("5_14rh7")
@@ -133,6 +155,7 @@ theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
 [node name="SurnameDocument" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer" unique_id=794129647 groups=["surname"]]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -189,31 +212,178 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 20
 vertical_alignment = 1
 
-[node name="Pasport" type="Panel" parent="Control" unique_id=629419619]
+[node name="Pasport" type="Panel" parent="Control" unique_id=692023560]
 layout_mode = 0
-offset_left = 45.00006
-offset_top = 154.99998
-offset_right = 722.00006
-offset_bottom = 461.0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 717.0001
+offset_bottom = 345.99994
 scale = Vector2(0.68, 0.68)
 theme_override_styles/panel = ExtResource("3_dlrc4")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Pasport" unique_id=350527943]
+[node name="MarginContainer" type="MarginContainer" parent="Control/Pasport" unique_id=606259532]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Pasport/MarginContainer" unique_id=853919061]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Pasport/MarginContainer/VBoxContainer" unique_id=2139743526]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="ColorRect" type="Panel" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1043033321]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("4_l3ryl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/ColorRect" unique_id=1314561493]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ImgPassport" type="TextureRect" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/ColorRect/MarginContainer" unique_id=997150013 groups=["img"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_14rh7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer" unique_id=151843068]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Label" type="Label" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=467325414]
+layout_mode = 2
+text = "Paszport Obywatelski"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1781822052]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("4_l3ryl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel" unique_id=224794177]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="NamePassport" type="Label" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer" unique_id=352115352 groups=["name"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=17035532]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("4_l3ryl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2" unique_id=1857484071]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="SurnamePassport" type="Label" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer" unique_id=245433744 groups=["surname"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Panel3" type="Panel" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=518956353]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("4_l3ryl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel3" unique_id=1092883572]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="BdayPassport" type="Label" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel3/MarginContainer" unique_id=265031763 groups=["bday"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Panel4" type="Panel" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=978369910]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("4_l3ryl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel4" unique_id=602472325]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="IdPassport" type="Label" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel4/MarginContainer" unique_id=808671867 groups=["id"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="Control" unique_id=527351674]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="NamePasport" type="Label" parent="Control/Pasport/VBoxContainer" unique_id=1068118152 groups=["name"]]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="SurnamePasport" type="Label" parent="Control/Pasport/VBoxContainer" unique_id=914132822 groups=["surname"]]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="IdPasport" type="Label" parent="Control/Pasport/VBoxContainer" unique_id=1655025031 groups=["id"]]
-unique_name_in_owner = true
-layout_mode = 2
+offset_left = 40.0
+offset_top = 571.0
+offset_right = 527.0
+offset_bottom = 960.0
+theme_override_styles/panel = ExtResource("3_dlrc4")
 
 [node name="Button" type="Button" parent="Control" unique_id=229316031]
 layout_mode = 0
@@ -222,17 +392,5 @@ offset_top = 155.0
 offset_right = 745.0
 offset_bottom = 186.0
 text = "NEXT"
-
-[node name="Node" type="Node" parent="." unique_id=1116703107]
-
-[node name="TextureNPC" type="Sprite2D" parent="Node" unique_id=332538673]
-unique_name_in_owner = true
-position = Vector2(909, 820)
-rotation = 1.5389065
-texture = SubResource("CompressedTexture2D_83weg")
-
-[node name="SoundNPC" type="AudioStreamPlayer2D" parent="Node" unique_id=1019563585]
-unique_name_in_owner = true
-position = Vector2(179, 109)
 
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

@@ -7,13 +7,13 @@ extends Resource
 
 
 #region DaneNPC
-var npc_img:		String
-var npc_name:		String
-var npc_surname:	String
-var npc_birthday:	String
-var npc_id:			String
-var npc_anomalies:	Array
-var npc_debug:		int
+var img:		String
+var name:		String
+var surname:	String
+var bday:		String
+var id:			String
+var anomalies:	Array
+var debug:		int
 #endregion
 
 #region ZmiennePlików
@@ -29,22 +29,22 @@ var _option:Array	= ["male", "female", "neutral"]
 
 func string() -> String:
 	return "NPC %s %s, bday: %s, id: %s, anomalies: %s" % [
-		npc_name, npc_surname, npc_birthday, npc_id, npc_anomalies
+		name, surname, bday, id, anomalies
 	]
 	
 func generate_npc() -> void:
 		var category:String = _option.pick_random()
-		npc_name = _data["names"][category].pick_random()
-		npc_surname	= _data["surnames"].pick_random()
+		name = _data["names"][category].pick_random()
+		surname	= _data["surnames"].pick_random()
 		
 		var year	= randi_range(1970, 2005)
 		var month	= randi_range(1, 12)
 		var day		= randi_range(1, 28)
-		npc_birthday		=  "%d.%d.%d" % [day, month, year]
+		bday		=  "%d.%d.%d" % [day, month, year]
 
-		npc_id		= _caesar(npc_name, npc_surname, npc_birthday)
-		npc_anomalies	= _anomaly()
-		npc_img = _image(category)
+		id		= _caesar(name, surname, bday)
+		anomalies	= _anomaly()
+		img = _image(category)
 #endregion
 
 #region FunkcjePomocnicze
