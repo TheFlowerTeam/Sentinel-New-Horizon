@@ -28,7 +28,7 @@ var current_index: int = 0
 
 #endregion
 
-#region Pasport
+#region Passport
 
 @onready var img_passport: TextureRect = %ImgPassport
 @onready var name_pasport: Label = %NamePassport

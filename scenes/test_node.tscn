@@ -5,6 +5,15 @@
 [ext_resource type="StyleBox" uid="uid://cx80410gpkp8w" path="res://styles/new_container.tres" id="3_dlrc4"]
 [ext_resource type="StyleBox" uid="uid://jt2qhh4rpew0" path="res://styles/inner_panel.tres" id="4_l3ryl"]
 [ext_resource type="Texture2D" uid="uid://na7lyqpvpxbm" path="res://assets/assets/airport-sec/npc/male/klis.png" id="5_14rh7"]
+[ext_resource type="Script" uid="uid://bacolv5jxkeqk" path="res://scenes/search.gd" id="6_14rh7"]
+[ext_resource type="PackedScene" uid="uid://dp8ebx8olnsac" path="res://scenes/minigames/airport-sec/true_false.tscn" id="6_l3ryl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3ryl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 2
+border_color = Color(0, 0.9019608, 0.62352943, 1)
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="Node" type="Node" unique_id=360961051]
 script = ExtResource("1_6uery")
@@ -48,178 +57,12 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Document" type="Panel" parent="Control" unique_id=1650745019]
-layout_mode = 0
-offset_left = 40.000004
-offset_top = 309.0
-offset_right = 717.0
-offset_bottom = 615.0
-scale = Vector2(0.68, 0.68)
-theme_override_styles/panel = ExtResource("3_dlrc4")
-
-[node name="MarginContainer" type="MarginContainer" parent="Control/Document" unique_id=516018702]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Document/MarginContainer" unique_id=1952213001]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/Document/MarginContainer/VBoxContainer" unique_id=155330804]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 15
-
-[node name="Img" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1445294313]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = ExtResource("4_l3ryl")
-
-[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/Img" unique_id=112125345]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="ImgDocument" type="TextureRect" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/Img/MarginContainer" unique_id=929712909 groups=["img"]]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("5_14rh7")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1939727745]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-
-[node name="Title" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1482911724]
-layout_mode = 2
-text = "Dowód Osobisty"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Name" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=532556501]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("4_l3ryl")
-
-[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Name" unique_id=1488157369]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
-
-[node name="NameDocument" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Name/MarginContainer" unique_id=213342157 groups=["name"]]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Surname" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=186121469]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("4_l3ryl")
-
-[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Surname" unique_id=1182843758]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
-
-[node name="SurnameDocument" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Surname/MarginContainer" unique_id=794129647 groups=["surname"]]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Bday" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=356939218]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("4_l3ryl")
-
-[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Bday" unique_id=1273767628]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
-
-[node name="BdayDocument" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Bday/MarginContainer" unique_id=1174085971 groups=["bday"]]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="ID" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1075700028]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("4_l3ryl")
-
-[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ID" unique_id=444999836]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
-
-[node name="IdDocument" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ID/MarginContainer" unique_id=56944457 groups=["id"]]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
 [node name="Pasport" type="Panel" parent="Control" unique_id=692023560]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 40.0
-offset_right = 717.0001
-offset_bottom = 345.99994
-scale = Vector2(0.68, 0.68)
+offset_right = 460.0
+offset_bottom = 240.0
 theme_override_styles/panel = ExtResource("3_dlrc4")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/Pasport" unique_id=606259532]
@@ -378,13 +221,270 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 20
 vertical_alignment = 1
 
-[node name="Panel" type="Panel" parent="Control" unique_id=527351674]
+[node name="Document" type="Panel" parent="Control" unique_id=1650745019]
 layout_mode = 0
 offset_left = 40.0
-offset_top = 571.0
-offset_right = 527.0
-offset_bottom = 960.0
+offset_top = 255.0
+offset_right = 460.0
+offset_bottom = 455.0
 theme_override_styles/panel = ExtResource("3_dlrc4")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Document" unique_id=516018702]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Document/MarginContainer" unique_id=1952213001]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Document/MarginContainer/VBoxContainer" unique_id=155330804]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="Img" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1445294313]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("4_l3ryl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/Img" unique_id=112125345]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ImgDocument" type="TextureRect" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/Img/MarginContainer" unique_id=929712909 groups=["img"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_14rh7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1939727745]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Title" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1482911724]
+layout_mode = 2
+text = "Dowód Osobisty"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=532556501]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("4_l3ryl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Name" unique_id=1488157369]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="NameDocument" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Name/MarginContainer" unique_id=213342157 groups=["name"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Surname" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=186121469]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("4_l3ryl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Surname" unique_id=1182843758]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="SurnameDocument" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Surname/MarginContainer" unique_id=794129647 groups=["surname"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Bday" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=356939218]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("4_l3ryl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Bday" unique_id=1273767628]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="BdayDocument" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Bday/MarginContainer" unique_id=1174085971 groups=["bday"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="ID" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1075700028]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("4_l3ryl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ID" unique_id=444999836]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="IdDocument" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ID/MarginContainer" unique_id=56944457 groups=["id"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="CheckboxList" type="Panel" parent="Control" unique_id=527351674]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 471.0
+offset_right = 460.0
+offset_bottom = 781.0
+theme_override_styles/panel = ExtResource("3_dlrc4")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/CheckboxList" unique_id=1500523530]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CheckboxList/MarginContainer" unique_id=1404869316]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Control/CheckboxList/MarginContainer/VBoxContainer" unique_id=1761879440 node_paths=PackedStringArray("childrens_parent")]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_l3ryl")
+theme_override_styles/focus = SubResource("StyleBoxFlat_l3ryl")
+placeholder_text = "Wyszukaj..."
+max_length = 32
+script = ExtResource("6_14rh7")
+childrens_parent = NodePath("../ScrollContainer/VBoxContainer")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/CheckboxList/MarginContainer/VBoxContainer" unique_id=1025046969]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer" unique_id=760664736]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1830987935 instance=ExtResource("6_l3ryl")]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Błędne imię:"
+
+[node name="Panel2" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=882848582 instance=ExtResource("6_l3ryl")]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Błędne nazwisko:"
+
+[node name="Panel3" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1411571234 instance=ExtResource("6_l3ryl")]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Błędne zdjęcie:"
+
+[node name="Panel4" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1892827280 instance=ExtResource("6_l3ryl")]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Błędna data ur.:"
+
+[node name="Panel5" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=800624701 instance=ExtResource("6_l3ryl")]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Błędne ID:"
+
+[node name="Wanted" type="Panel" parent="Control" unique_id=1977829117]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 36.275
+anchor_top = 1.0
+anchor_right = 46.775
+anchor_bottom = 14.300001
+offset_bottom = -6.1035156e-05
+theme_override_styles/panel = ExtResource("3_dlrc4")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Wanted" unique_id=579393110]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Wanted/MarginContainer" unique_id=1145409879]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Wanted/MarginContainer/ScrollContainer" unique_id=1781528145]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="Control" unique_id=229316031]
 layout_mode = 0
@@ -392,6 +492,8 @@ offset_left = 696.0
 offset_top = 155.0
 offset_right = 745.0
 offset_bottom = 186.0
+action_mode = 0
 text = "NEXT"
 
+[connection signal="text_changed" from="Control/CheckboxList/MarginContainer/VBoxContainer/LineEdit" to="Control/CheckboxList/MarginContainer/VBoxContainer/LineEdit" method="_on_text_changed"]
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

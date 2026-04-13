@@ -86,6 +86,10 @@ ActionButton={
 
 pointing/emulate_touch_from_mouse=true
 
+[internationalization]
+
+locale/locale_filter_mode=0
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
