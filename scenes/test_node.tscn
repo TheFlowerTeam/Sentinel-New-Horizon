@@ -5,7 +5,7 @@
 [ext_resource type="StyleBox" uid="uid://cx80410gpkp8w" path="res://styles/new_container.tres" id="3_dlrc4"]
 [ext_resource type="StyleBox" uid="uid://jt2qhh4rpew0" path="res://styles/inner_panel.tres" id="4_l3ryl"]
 [ext_resource type="Texture2D" uid="uid://na7lyqpvpxbm" path="res://assets/assets/airport-sec/npc/male/klis.png" id="5_14rh7"]
-[ext_resource type="Script" uid="uid://bacolv5jxkeqk" path="res://scenes/search.gd" id="6_14rh7"]
+[ext_resource type="Script" path="res://scenes/search.gd" id="6_14rh7"]
 [ext_resource type="PackedScene" uid="uid://dp8ebx8olnsac" path="res://scenes/minigames/airport-sec/true_false.tscn" id="6_l3ryl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3ryl"]
