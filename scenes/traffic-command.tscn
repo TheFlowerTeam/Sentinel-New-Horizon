@@ -18,6 +18,12 @@ point_count = 4
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ym1ef"]
 size = Vector2(142.95575, 66.33226)
 
+[sub_resource type="LabelSettings" id="LabelSettings_o80tv"]
+font = ExtResource("8_o80tv")
+font_size = 46
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="Curve2D" id="Curve2D_avl7u"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -65.45455, -559.0909, 0, 0, 0, 0, -65.45454, 464.54544)
@@ -91,6 +97,17 @@ rotation = 3.141129
 scale = Vector2(0.9999995, 0.999999)
 shape = SubResource("RectangleShape2D_ym1ef")
 
+[node name="Timer" type="Label" parent="Left/Path2D_1/PathFollow2D/Node2D" unique_id=1300295748]
+visible = false
+z_index = 2
+offset_left = 30.000011
+offset_top = -30.00006
+offset_right = 103.22374
+offset_bottom = 33.64209
+rotation = 1.5707964
+text = "Timer"
+label_settings = SubResource("LabelSettings_o80tv")
+
 [node name="Path2D_2" type="Path2D" parent="Left" unique_id=1817042041]
 position = Vector2(3.2522443e-08, 2.727276)
 curve = SubResource("Curve2D_avl7u")
@@ -152,6 +169,17 @@ script = ExtResource("3_avl7u")
 rotation = 3.141129
 scale = Vector2(0.9999995, 0.999999)
 shape = SubResource("RectangleShape2D_ym1ef")
+
+[node name="Timer" type="Label" parent="Down/Path2D_1/PathFollow2D/Node2D" unique_id=1923693686]
+visible = false
+z_index = 2
+offset_left = 27.272686
+offset_top = 31.818146
+offset_right = 100.496414
+offset_bottom = 95.4603
+rotation = 3.1415927
+text = "Timer"
+label_settings = SubResource("LabelSettings_o80tv")
 
 [node name="Path2D_2" type="Path2D" parent="Down" unique_id=936718889]
 position = Vector2(3.2522443e-08, 2.727276)
@@ -215,6 +243,17 @@ rotation = 3.141129
 scale = Vector2(0.9999995, 0.999999)
 shape = SubResource("RectangleShape2D_ym1ef")
 
+[node name="Timer" type="Label" parent="Right/Path2D_1/PathFollow2D/Node2D" unique_id=611285636]
+visible = false
+z_index = 2
+offset_left = -31.818176
+offset_top = 29.090912
+offset_right = 41.40555
+offset_bottom = 92.73306
+rotation = -1.5707964
+text = "Timer"
+label_settings = SubResource("LabelSettings_o80tv")
+
 [node name="Path2D_2" type="Path2D" parent="Right" unique_id=717544897]
 position = Vector2(3.2522443e-08, 2.727276)
 curve = SubResource("Curve2D_avl7u")
@@ -275,6 +314,16 @@ script = ExtResource("3_avl7u")
 rotation = 3.141129
 scale = Vector2(0.9999995, 0.999999)
 shape = SubResource("RectangleShape2D_ym1ef")
+
+[node name="Timer" type="Label" parent="Up/Path2D_1/PathFollow2D/Node2D" unique_id=5203426]
+visible = false
+z_index = 2
+offset_left = -29.090889
+offset_top = -30.0
+offset_right = 44.132835
+offset_bottom = 33.642155
+text = "Timer"
+label_settings = SubResource("LabelSettings_o80tv")
 
 [node name="Path2D_2" type="Path2D" parent="Up" unique_id=1587363695]
 position = Vector2(3.2522443e-08, 2.727276)
