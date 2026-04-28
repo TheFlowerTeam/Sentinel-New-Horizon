@@ -80,6 +80,7 @@ glow_blend_mode = 0
 
 [node name="Node" type="Node" unique_id=360961051 node_paths=PackedStringArray("wanted_conatiner")]
 script = ExtResource("1_ebq34")
+time_left = 60.0
 categories = PackedStringArray("img", "name", "surname", "bday", "id")
 wanted_conatiner = NodePath("Control/Wanted/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer")
 wanted_template = ExtResource("11_f3nuu")

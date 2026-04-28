@@ -14,6 +14,12 @@ extends Node
 
 
 #region GlobalScopeVariable
+# Zmienne zegara
+@export var time_left: float = 15.0 # Czas w sekundach
+var game_over: bool = false
+var clock_played: bool = false
+var timer: float = 0.0
+
 
 @export	var categories:PackedStringArray
 var list: Array = []
@@ -135,7 +141,8 @@ func _ready() -> void:
 func _on_next_pressed() -> void:
 	var npc = list[current_index]
 	var player_answers = send_answers() # Pobiera Dictionary { "id": true, "name": false ... }
-	
+	print("TABELA NPC: ", npc.truth_table)
+	print("WYBÓR GRACZA: ", player_answers)
 	# 1. Oblicz punkty za tego konkretnego NPC
 	var points_this_round = check_single_npc(npc, player_answers)
 	total_score += points_this_round
@@ -184,10 +191,7 @@ func reset_ui_panel() -> void:
 		node.get_node("%TrueBox").set_pressed(false)
 
 
-var time_left: float = 15.0 # Czas w sekundach
-var game_over: bool = false
-var clock_played: bool = false
-var timer: float = 0.0
+
 
 
 func _process(delta: float) -> void:
@@ -210,7 +214,7 @@ func _process(delta: float) -> void:
 			%TimerLabel.modulate = Color.RED
 	else:
 		%TimerLabel.modulate = Color.WHITE # Reset do białego powyżej 8s
-	
+
 	
 func _update_timer_label() -> void:
 	# Formatowanie sekund na MM:SS
@@ -218,7 +222,6 @@ func _update_timer_label() -> void:
 	var seconds = int(time_left) % 60
 	%TimerLabel.text = "%02d:%02d" % [minutes, seconds]
 		
-
 
 func _time_is_up() -> void:
 	print("Czas minął!")
