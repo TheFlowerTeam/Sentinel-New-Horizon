@@ -2,7 +2,9 @@
 # =================
 # Główny skrypt Airport Security
 
-# Clock Sound Effect by DRAGON-STUDIO from Pixabay
+# Clock Sound Effect by DRAGON-STUDIO from Pixaba2y
+# Butons Sound Effect by freesound_community from Pixabay
+# Theme Music by SunoAi
 extends Node
 @onready var panel_name: Panel = %PanelName
 @onready var panel_surname: Panel = %PanelSurname
@@ -34,6 +36,10 @@ var anomaly_methods:Dictionary = {
 }
 @export var wanted_conatiner: VBoxContainer
 @export var wanted_template: PackedScene
+
+# Stats
+var checked: int = 0
+var perfect: int = 0
 #endregion 
 
 #region NPC
@@ -141,13 +147,10 @@ func _ready() -> void:
 func _on_next_pressed() -> void:
 	var npc = list[current_index]
 	var player_answers = send_answers() # Pobiera Dictionary { "id": true, "name": false ... }
-	print("TABELA NPC: ", npc.truth_table)
-	print("WYBÓR GRACZA: ", player_answers)
 	# 1. Oblicz punkty za tego konkretnego NPC
 	var points_this_round = check_single_npc(npc, player_answers)
 	total_score += points_this_round
 	
-	print("NPC nr %d oceniony. Punkty: %d | Suma: %d" % [current_index, points_this_round, total_score])
 	
 	# 2. Sprawdź, czy to koniec listy
 	if current_index < list.size() - 1:
@@ -162,16 +165,70 @@ func _on_next_pressed() -> void:
 func send_answers() -> Dictionary:
 	var answers:Dictionary = {}
 	for node in  chbx_container.get_children():
-		if node.get_node("%FalseBox").pressed:
-			answers[node.category] = true
-		else:
+		if node.get_node("%FalseBox").button_pressed == true:
 			answers[node.category] = false
+		else:
+			answers[node.category] = true
 			
 	return answers
 	
-
 func show_final_summary() -> void:
-	pass
+	get_tree().paused = true
+	
+	# --- OBLICZENIA ---
+	var time_bonus = int(max(0, time_left * 10))
+	var final_score = total_score + time_bonus
+	
+	# Obliczanie skuteczności (procentowej)
+	var total_decisions = checked * 6 # 6 kategorii na każdego NPC
+	var accuracy = 0.0
+	if total_decisions > 0:
+		# total_score zawiera punkty dodatnie i ujemne, 
+		# ale dla statystyki "skuteczności" lepiej pokazać po prostu trafienia
+		accuracy = (float(perfect) / checked) * 100 if checked > 0 else 0.0
+
+	# --- PRZYGOTOWANIE TEKSTÓW ---
+	%TimeBonusValue.text = "PREMIA ZA CZAS: +" + str(time_bonus)
+	
+	# Statystyki szczegółowe
+	%StatsValue.text = (
+		"RAPORT SŁUŻBY:\n" +
+		"Odprawieni pasażerowie: " + str(checked) + "\n" +
+		"Bezbłędne kontrole: " + str(perfect) + "\n" +
+		"Skuteczność profilowania: " + str(int(accuracy)) + "%"
+	)
+	
+	# Komentarz zwrotny zależny od punktów
+	var evaluation = ""
+	if final_score > 2000: evaluation = "STATUS: EKSPERT BEZPIECZEŃSTWA"
+	elif final_score > 0: evaluation = "STATUS: KONTROLER ZATWIERDZONY"
+	else: evaluation = "STATUS: DO PONOWNEGO SZKOLENIA"
+	
+	%GradeValue.text = evaluation
+	%TotalValue.text = "SUMA PUNKTÓW: 0"
+	
+	%EndGame.show()
+	
+	# --- ANIMACJA ---
+	var tween = create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	
+	# 1. Najpierw pokazujemy statystyki (płynne pojawienie się tekstu)
+	%StatsValue.modulate.a = 0
+	tween.tween_property(%StatsValue, "modulate:a", 1.0, 1.0)
+	
+	# 2. Licznik punktów (wolniejszy i wyraźny)
+	tween.tween_method(
+		func(value): %TotalValue.text = "WYNIK KOŃCOWY: " + str(value), 
+		0, 
+		final_score, 
+		3.0 
+	).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	
+	# 3. Na koniec status/komentarz
+	tween.tween_interval(0.5)
+	%GradeValue.modulate.a = 0
+	%GradeValue.show()
+	tween.tween_property(%GradeValue, "modulate:a", 1.0, 0.8)
 	
 func check_single_npc(npc: NPC, answer: Dictionary) -> int:
 	var score: int = 0
@@ -183,6 +240,8 @@ func check_single_npc(npc: NPC, answer: Dictionary) -> int:
 			score += 100
 		else:
 			score -= 150
+	checked += 1
+	if score == 600: perfect += 1
 	return score
 	
 func reset_ui_panel() -> void:
@@ -190,9 +249,7 @@ func reset_ui_panel() -> void:
 		node.get_node("%FalseBox").set_pressed(false)
 		node.get_node("%TrueBox").set_pressed(false)
 
-
-
-
+#region Zegary
 
 func _process(delta: float) -> void:
 	if time_left > 0:
@@ -214,15 +271,20 @@ func _process(delta: float) -> void:
 			%TimerLabel.modulate = Color.RED
 	else:
 		%TimerLabel.modulate = Color.WHITE # Reset do białego powyżej 8s
-
 	
 func _update_timer_label() -> void:
 	# Formatowanie sekund na MM:SS
 	var minutes = int(time_left) / 60
 	var seconds = int(time_left) % 60
 	%TimerLabel.text = "%02d:%02d" % [minutes, seconds]
-		
-
+	
 func _time_is_up() -> void:
 	print("Czas minął!")
 	# Wywołaj podsumowanie wyników
+#endregion
+
+
+func _on_click_to_show_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		%ClickToShow.hide()
+		%Report.show()

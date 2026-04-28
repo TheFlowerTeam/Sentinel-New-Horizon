@@ -85,7 +85,6 @@ stretch_mode = 3
 
 [node name="SettingsMenu" parent="Control/Settings" unique_id=1784852679 instance=ExtResource("6_eld54")]
 process_mode = 0
-visible = false
 script = ExtResource("7_3swnk")
 
 [node name="Shop" type="TextureButton" parent="Control" unique_id=1736348984]
