@@ -24,21 +24,16 @@ func _ready() -> void:
 
 
 func _on_nowa_gra_pressed() -> void:
-	click_sound.play()
 	TransitionScene.fade_to_scene("res://scenes/menu/main_menu_nowa_gra.tscn")
 
 func _on_kontynuuj_pressed() -> void:
-	click_sound.play()
 	TransitionScene.fade_to_scene("res://scenes/menu/main_menu_kontynuuj.tscn")
 
 func _on_ustawienia_pressed() -> void:
-	click_sound.play()
 	TransitionScene.fade_to_scene("res://scenes/menu/main_menu_ustawienia.tscn")
 
 func _on_autorzy_pressed() -> void:
-	click_sound.play()
 	TransitionScene.fade_to_scene("res://scenes/menu/main_menu_autorzy.tscn")
 
 func _on_wyjscie_pressed() -> void:
-	click_sound.play()
 	get_tree().quit()

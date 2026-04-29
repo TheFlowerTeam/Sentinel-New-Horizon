@@ -34,17 +34,15 @@ func _ready() -> void:
 		
 	
 func _on_wyjscie_pressed() -> void:
-	click_sound.play()
+	pass
 	TransitionScene.fade_to_scene("res://scenes/menu/main_menu.tscn")
 	
 	
 func _on_apply_pressed() -> void:
-	click_sound.play()
-
+	pass
 	
 func _on_back_pressed() -> void:
-	click_sound.play()
-
+	pass
 	
 func _on_reset_pressed() -> void:
-	click_sound.play()
+	pass
