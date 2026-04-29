@@ -311,4 +311,3 @@ func _on_back_to_main_pressed() -> void:
 	GlobalData.save_score(points)
 	TransitionScene.fade_to_scene("res://scenes/main_game.tscn")
 	
-	
