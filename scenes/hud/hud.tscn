@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ki70gho6lyw5"]
 
 [ext_resource type="Texture2D" uid="uid://cuq5rwty4if6i" path="res://assets/assets/icons/panel/day_counter.png" id="1_0i1j5"]
+[ext_resource type="Shader" uid="uid://ukr2usbewk7y" path="res://shaders/gradient.gdshader" id="1_iioc1"]
 [ext_resource type="Texture2D" uid="uid://d40yf2njbld7" path="res://assets/assets/icons/overlay.png" id="1_mphia"]
 [ext_resource type="Texture2D" uid="uid://b5hpw3dvx7a0l" path="res://assets/assets/icons/panel/clock_under.png" id="2_mphia"]
 [ext_resource type="Texture2D" uid="uid://eoiy7i2cvwrt" path="res://assets/assets/icons/panel/clock_over.png" id="3_0m4u7"]
@@ -14,6 +15,16 @@
 [ext_resource type="Texture2D" uid="uid://bvr55d50yohx4" path="res://assets/assets/icons/settings/button-settings-h.png" id="8_0m4u7"]
 [ext_resource type="Script" uid="uid://dbrifp0rbviky" path="res://scripts/menu/upgrades_menu.gd" id="9_5n1hp"]
 [ext_resource type="Texture2D" uid="uid://8owvvblbu6i0" path="res://assets/assets/icons/shop/button-shop-h.png" id="9_mphia"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_567j1"]
+shader = ExtResource("1_iioc1")
+shader_parameter/color_start = Color(0, 1, 0.69, 1)
+shader_parameter/color_end = Color(0, 0.2, 0.5, 1)
+shader_parameter/base_alpha = 0.07200000342
+shader_parameter/point_start = Vector2(-1.35, 0.5)
+shader_parameter/point_end = Vector2(1, 0.5)
+shader_parameter/piaskowy_intensity = 0.5270000250325
+shader_parameter/grain_scale = 31.4450014461375
 
 [sub_resource type="GDScript" id="GDScript_0m4u7"]
 script/source = "extends TextureRect
@@ -34,6 +45,7 @@ func _process(delta: float) -> void:
 process_mode = 3
 
 [node name="Overlay" type="TextureRect" parent="." unique_id=522304739]
+material = SubResource("ShaderMaterial_567j1")
 offset_right = 1920.0
 offset_bottom = 1081.0
 texture = ExtResource("1_mphia")
