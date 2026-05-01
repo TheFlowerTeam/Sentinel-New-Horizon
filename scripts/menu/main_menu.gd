@@ -6,6 +6,9 @@ extends Control
 @onready var btn_autorzy:      Button = %Autorzy
 @onready var btn_wyjscie:      Button = %Wyjscie
 
+@onready var click_sound: AudioStreamPlayer = $ClickSound
+
+
 func _input(event):
 	if event is InputEventMouseButton:
 		print("klik globalny")

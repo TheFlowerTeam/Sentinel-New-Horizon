@@ -13,29 +13,24 @@ var surname:	String
 var bday:		String
 var id:			String
 var anomalies:	Array
-var debug:		int
-var is_wanted:  bool      # NOWE
-var wanted_by:  String    # NOWE
+var truth_table:Dictionary
+var debug:		int 
 #endregion
 
 #region ZmiennePlików
 var _path_to_data 	= "res://assets/resources/person_data.json"
 var _data_file 		= FileAccess.open(_path_to_data, FileAccess.READ)
-var _data 			= JSON.parse_string(_data_file.get_as_text())
-var _anomalies_file = FileAccess.open("res://assets/resources/anomalies.json", FileAccess.READ)
-var _anomalies:Array = JSON.parse_string(_anomalies_file.get_as_text())
+var _data:Dictionary= JSON.parse_string(_data_file.get_as_text())
 var _option:Array	= ["male", "female", "neutral"]
 #endregion
 
 #region FunkcjeGłówne
 
-func string() -> String:
-	return "NPC %s %s, bday: %s, id: %s, anomalies: %s" % [
-		name, surname, bday, id, anomalies
-	]
-	
+var category:String
+
+
 func generate_npc() -> void:
-		var category:String = _option.pick_random()
+		category = _option.pick_random()
 		name = _data["names"][category].pick_random()
 		surname	= _data["surnames"].pick_random()
 		
@@ -47,14 +42,12 @@ func generate_npc() -> void:
 		id		= _caesar(name, surname, bday)
 		anomalies	= _anomaly()
 		img = _image(category)
-		#====================================NOWE====================================#
-		is_wanted = randf() < 0.10
-		if is_wanted:
-			wanted_by = ["name", "id"].pick_random()
+		truth_table = gen_truth_table()
 #endregion
 
 #region FunkcjePomocnicze
 
+@warning_ignore("shadowed_variable")
 func _image(category:String) -> String:
 	var path = "res://assets/assets/airport-sec/npc" 
 	var img_path = ""
@@ -92,11 +85,72 @@ func _caesar(first:String, second:String, npc_id:String) -> String:
 	return output
 	
 func _anomaly() -> Array:
-		var list:Array = []
-		var pool:Array = _anomalies
-		if randf() < 0.35:
-			var cards = randi_range(0, 3)
-			pool.shuffle()
-			list = pool.slice(0, cards)
-		return list
+	var result_list: Array = []
+	var pool: Array = ["name", "surname", "id", "bday", "img", "wanted"]
+	if randf() < 0.55:
+		var count = randi_range(1, pool.size() + 1) # Zmieniono na 1-2, żeby nie slice'ować 0
+		pool.shuffle()
+		result_list = pool.slice(0, count)
+	return result_list
+	
 #endregion
+
+#region AnomalyFunctions
+
+func wrong_name() -> String:
+	var all_names: Array = _data["names"][category]
+	var filtered_names = all_names.filter(func(n): return n != name)
+	return filtered_names.pick_random()
+	
+func wrong_surname() -> String:
+	var all_surnames = _data["surnames"]
+	var filtered_surnames = all_surnames.filter(func(s): return s != surname)
+	return filtered_surnames.pick_random()
+	
+func wrong_id() -> String: 
+	return id.substr(0, id.length() - 1) + str(randi_range(0,9)) + "X"
+
+func wrong_img() -> String:
+	var path = "res://assets/assets/airport-sec/npc/"
+	if category == 'male' || category == 'female':
+		path += category
+	else:
+		path = img.get_base_dir()
+	
+	var dir = DirAccess.open(path)
+	var all_files = dir.get_files()
+	var valid_imgs: Array[String] = []
+	
+	for f in all_files:
+		var full_path = path + "/" + f
+		if f.ends_with(".png") and full_path != img:
+			valid_imgs.append(full_path)
+	
+	if valid_imgs.is_empty():
+		return img 
+		
+	return valid_imgs.pick_random()
+
+func wrong_bday() -> String:
+	var new_bday = ""
+	while true:
+		var year = randi_range(1970, 2005)
+		var month = randi_range(1, 12)
+		var day = randi_range(1, 28)
+		new_bday = "%d.%d.%d" % [day, month, year]
+		if new_bday != bday:
+			break
+	return new_bday
+
+#endregion
+
+func gen_truth_table() -> Dictionary:
+	var dict = {
+		"name": anomalies.has("name"),      # true = jest błąd
+		"surname": anomalies.has("surname"),
+		"img": anomalies.has("img"),
+		"bday": anomalies.has("bday"),
+		"id": anomalies.has("id"),
+		"wanted": anomalies.has("wanted")
+	}
+	return dict
