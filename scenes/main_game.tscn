@@ -23,14 +23,19 @@ unique_name_in_owner = true
 position = Vector2(-2663, -1479)
 zoom = Vector2(0.375, 0.375)
 process_callback = 0
-limit_left = -7129
-limit_top = -4010
-limit_right = 1920
-limit_bottom = 1080
-limit_smoothed = true
+limit_left = -7120
+limit_top = -4000
+limit_right = 1910
+limit_bottom = 1070
 position_smoothing_enabled = true
+position_smoothing_speed = 3.0
 editor_draw_limits = true
 script = ExtResource("3_ygxny")
+map_limit_left = -7120
+map_limit_right = 1920
+map_limit_top = -4000
+map_limit_bottom = 1080
+speed = 1250.0
 
 [node name="HUD" parent="Camera" unique_id=1423471652 instance=ExtResource("4_wi4c7")]
 
