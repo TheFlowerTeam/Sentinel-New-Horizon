@@ -6,7 +6,7 @@ func _ready() -> void:
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
-			get_child(0).visible = true
+			get_child(0).open_popup(true)
 			get_tree().paused = true
 			
 func _menu_closed() -> void:

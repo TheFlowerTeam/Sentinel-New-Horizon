@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://scbdubmnau0o"]
 
 [ext_resource type="Shader" uid="uid://cn13awsmpioy" path="res://shaders/upgrades_menu.gdshader" id="1_labj1"]
+[ext_resource type="Script" uid="uid://cdipld5s8jirl" path="res://scripts/menu/popup_menu.gd" id="1_yikl8"]
 [ext_resource type="StyleBox" uid="uid://cx80410gpkp8w" path="res://styles/new_container.tres" id="2_mc4l6"]
-[ext_resource type="Script" uid="uid://c0d71xbcyg8h6" path="res://scripts/settings/exit_button.gd" id="4_48ojb"]
 [ext_resource type="PackedScene" uid="uid://btw8v5y6p1lxx" path="res://scenes/hud/checkbox.tscn" id="5_48ojb"]
 [ext_resource type="PackedScene" uid="uid://6piwt5qyj171" path="res://scenes/hud/volume-slider.tscn" id="5_lwwgp"]
 [ext_resource type="StyleBox" uid="uid://d0nwpictalqq3" path="res://styles/button_normal.tres" id="5_yikl8"]
@@ -35,19 +35,19 @@ process_mode = 3
 transparent_bg = true
 oversampling_override = 1.0
 mode = 3
-size = Vector2i(2229, 1080)
+size = Vector2i(1920, 1080)
 visible = true
 always_on_top = true
 transparent = true
+script = ExtResource("1_yikl8")
 
 [node name="Background" type="ColorRect" parent="." unique_id=827922727]
 material = SubResource("ShaderMaterial_0vea8")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -2.3325348
-offset_right = -308.58313
-offset_bottom = -2.3325195
+offset_left = 4.0
+offset_top = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -57,9 +57,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -985.0
+offset_left = -830.5
 offset_top = -410.5
-offset_right = 676.0
+offset_right = 830.5
 offset_bottom = 410.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -190,7 +190,7 @@ theme_override_constants/margin_bottom = 10
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/Control/MarginContainer/Main/2Rows/Right/MarginContainer" unique_id=2052315840]
 layout_mode = 2
 
-[node name="ExitButton" type="Button" parent="Menu" unique_id=453768323]
+[node name="Close" type="Button" parent="Menu" unique_id=453768323]
 process_mode = 3
 layout_mode = 0
 offset_left = 4.5
@@ -203,6 +203,5 @@ theme_override_styles/hover = ExtResource("7_ucg5u")
 theme_override_styles/hover_pressed = ExtResource("8_7nmf5")
 icon = ExtResource("9_orf7j")
 icon_alignment = 1
-script = ExtResource("4_48ojb")
 
-[connection signal="pressed" from="Menu/ExitButton" to="Menu/ExitButton" method="_on_pressed"]
+[connection signal="pressed" from="Menu/Close" to="." method="_on_close_pressed"]

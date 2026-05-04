@@ -1,10 +1,9 @@
 extends Node
 
-@warning_ignore("unused_signal")
+@warning_ignore_start("unused_signal")
+
 signal menu_opened(is_open:bool)
 
-@warning_ignore("unused_signal")
-signal menu_closed()
+signal menu_closed(should_unpause:bool)
 
-@warning_ignore("unused_signal")
 signal music_val_changed(bus:String, value: float)

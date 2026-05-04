@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c7fuykroxti3e"]
 
+[ext_resource type="Script" uid="uid://cdipld5s8jirl" path="res://scripts/menu/popup_menu.gd" id="1_fkpcm"]
 [ext_resource type="Shader" uid="uid://cn13awsmpioy" path="res://shaders/upgrades_menu.gdshader" id="1_upvkg"]
 [ext_resource type="StyleBox" uid="uid://cx80410gpkp8w" path="res://styles/new_container.tres" id="2_maivf"]
 [ext_resource type="StyleBox" uid="uid://d0nwpictalqq3" path="res://styles/button_normal.tres" id="3_j4o8j"]
-[ext_resource type="Script" uid="uid://c0d71xbcyg8h6" path="res://scripts/settings/exit_button.gd" id="4_6prvl"]
 [ext_resource type="StyleBox" uid="uid://dvlok2lhvh06c" path="res://styles/button_pressed.tres" id="4_fkpcm"]
 [ext_resource type="StyleBox" uid="uid://d3put2lwpduio" path="res://styles/button_hover.tres" id="5_b7e55"]
 [ext_resource type="StyleBox" uid="uid://clpcdk30tp4v1" path="res://styles/button_hover_pressed.tres" id="6_y3kab"]
@@ -24,12 +24,17 @@ size = Vector2i(1920, 1080)
 visible = true
 always_on_top = true
 transparent = true
+script = ExtResource("1_fkpcm")
 
 [node name="Background" type="ColorRect" parent="." unique_id=827922727]
 material = SubResource("ShaderMaterial_0vea8")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 1916.0
+offset_bottom = 1076.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -47,7 +52,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("2_maivf")
 
-[node name="ExitButton" type="Button" parent="Menu" unique_id=520370973]
+[node name="Close" type="Button" parent="Menu" unique_id=520370973]
 process_mode = 3
 layout_mode = 0
 offset_left = 14.5
@@ -60,6 +65,15 @@ theme_override_styles/hover = ExtResource("5_b7e55")
 theme_override_styles/hover_pressed = ExtResource("6_y3kab")
 icon = ExtResource("7_j4o8j")
 icon_alignment = 1
-script = ExtResource("4_6prvl")
 
-[connection signal="pressed" from="Menu/ExitButton" to="Menu/ExitButton" method="_on_pressed"]
+[node name="Label" type="Label" parent="Menu" unique_id=657766869]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 613
+text = "Test"
+
+[connection signal="pressed" from="Menu/Close" to="." method="_on_close_pressed"]
