@@ -1,35 +1,39 @@
-[gd_scene format=3 uid="uid://dhjiyx7bhrdgu"]
+[gd_scene format=3 uid="uid://dv142m4nywpfy"]
 
 [ext_resource type="Script" uid="uid://dyk7w858jcfaa" path="res://scripts/logic/game.gd" id="1_0rdsr"]
 [ext_resource type="Texture2D" uid="uid://wna4dnyf8t2m" path="res://assets/map/map.png" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://dx206ol2fnxdd" path="res://scenes/alert.tscn" id="2_ipu61"]
 [ext_resource type="Script" uid="uid://dwdf468ndxmbh" path="res://scripts/logic/camera.gd" id="3_ygxny"]
 [ext_resource type="PackedScene" uid="uid://ki70gho6lyw5" path="res://scenes/hud/hud.tscn" id="4_wi4c7"]
 
 [node name="Game" type="Node2D" unique_id=211452031]
 script = ExtResource("1_0rdsr")
+popup_scene = ExtResource("2_ipu61")
 
 [node name="Map" type="Sprite2D" parent="." unique_id=35735412]
-position = Vector2(-2604.4446, -1465)
-scale = Vector2(4.712963, 4.712963)
+unique_name_in_owner = true
+scale = Vector2(4, 4)
 texture = ExtResource("1_yqjtg")
+centered = false
 
 [node name="Camera" type="Camera2D" parent="." unique_id=508650196]
 unique_name_in_owner = true
-position = Vector2(-2663, -1479)
+position = Vector2(-0.002756834, -0.0001745224)
 zoom = Vector2(0.375, 0.375)
 process_callback = 0
-limit_left = -7120
-limit_top = -4000
-limit_right = 1910
-limit_bottom = 1070
+limit_left = 0
+limit_top = 0
+limit_right = 7680
+limit_bottom = 4320
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 editor_draw_limits = true
 script = ExtResource("3_ygxny")
-map_limit_left = -7120
-map_limit_right = 1920
-map_limit_top = -4000
-map_limit_bottom = 1080
+map_limit_right = 7680
+map_limit_bottom = 4320
 speed = 1250.0
 
 [node name="HUD" parent="Camera" unique_id=1423471652 instance=ExtResource("4_wi4c7")]
+end_hour = 16
+step = 15
+clock_wait_time = 15.0

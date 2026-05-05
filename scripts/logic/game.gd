@@ -1,11 +1,14 @@
 extends Node2D
 
+@export_category("Alerts")
+@export var popup_scene: PackedScene
+
+
+@onready var map: Sprite2D = %Map
+
 func _ready() -> void:
-	GameEvents.menu_opened.connect(_menu_opened)
-	GameEvents.menu_closed.connect(_menu_closed)
-	
-func _menu_opened() -> void:
-	get_tree().paused = true
-	
-func _menu_closed() -> void:
-	get_tree().paused = false
+	var map_size: Vector2 = map.texture.get_size()
+	var popup = popup_scene.instantiate()
+	popup.position.x = randf_range(0, map_size.x)
+	popup.position.y = randf_range(0, map_size.y)
+	map.add_child(popup)

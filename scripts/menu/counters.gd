@@ -27,6 +27,7 @@ extends Node
 @onready var upgrades_menu: Popup = %UpgradesMenu
 @onready var achivements_menu: Popup = %AchivementsMenu
 @onready var panel_sound: AudioStreamPlayer = %PanelSound
+@onready var left_menu: Popup = %LeftMenu
 
 #endregion
 
@@ -42,6 +43,8 @@ var current_day: int = 0
 #region Setup
 
 func _ready() -> void:
+	GameEvents.connect("show_alert_desciption", _show_left_panel)
+	
 	timer.wait_time = clock_wait_time
 	current_hour = start_hour * 60 # Minuty startowe
 	end_hour *= 60 # Przeliczamy godzine koncowa na minuty
@@ -92,6 +95,9 @@ func _on_continue_button_button_down() -> void:
 	play()
 	update_day()
 	reset()
+	
+func _show_left_panel() -> void:
+	left_menu.open_popup()
 	
 #endregion
 

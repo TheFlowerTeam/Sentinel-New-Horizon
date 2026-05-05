@@ -10,7 +10,6 @@ func open_popup(should_pause: bool):
 		get_tree().paused = true
 
 func _on_close_pressed():
-	print("Test")
 	if was_paused_by_me:
 		get_tree().paused = false
 	self.visible = false

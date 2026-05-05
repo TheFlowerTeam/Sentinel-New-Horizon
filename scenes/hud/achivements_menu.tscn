@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://cc0ak4wmcs1ye"]
+[gd_scene format=3 uid="uid://cykkh2pnoyn0r"]
 
 [ext_resource type="Shader" uid="uid://cn13awsmpioy" path="res://shaders/upgrades_menu.gdshader" id="1_ee1af"]
-[ext_resource type="Script" uid="uid://b0jjg6loumlp7" path="res://scripts/menu/achivements_menu.gd" id="1_tqlu0"]
+[ext_resource type="Script" uid="uid://cdipld5s8jirl" path="res://scripts/menu/popup_menu.gd" id="1_tqlu0"]
 [ext_resource type="StyleBox" uid="uid://75h2u2x0qomg" path="res://styles/new_container.tres" id="2_tqlu0"]
 [ext_resource type="StyleBox" uid="uid://cxr38ph77awum" path="res://styles/button_normal.tres" id="3_wylq7"]
 [ext_resource type="StyleBox" uid="uid://by28edpapi7u0" path="res://styles/button_pressed.tres" id="4_wxqmx"]
@@ -75,6 +75,7 @@ icon = ExtResource("7_hwx6a")
 icon_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=812756441]
+unique_name_in_owner = true
 libraries/panels = ExtResource("9_tqlu0")
 
 [connection signal="pressed" from="Menu/MainContainer/Close" to="." method="_on_close_pressed"]

@@ -1,0 +1,244 @@
+[gd_scene format=3 uid="uid://cxunusqi14ce"]
+
+[ext_resource type="Script" uid="uid://cyj4t2t0isp6h" path="res://scenes/hud/left_panel.gd" id="1_ko64p"]
+[ext_resource type="StyleBox" uid="uid://75h2u2x0qomg" path="res://styles/new_container.tres" id="1_xauwh"]
+[ext_resource type="StyleBox" uid="uid://csynecfi8a414" path="res://styles/inner_panel.tres" id="3_ko64p"]
+
+[sub_resource type="Animation" id="Animation_ko64p"]
+resource_name = "alert"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.40000004),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.40000004, 0.6, 0.8000001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(40, 40), Vector2(500, 80), Vector2(500, 700)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.40000004, 0.6, 0.8000001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(5, 520), Vector2(5, 500), Vector2(5, 190)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel:pivot_offset_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.40000004, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0.5), Vector2(0, 0.5)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel/MarginContainer:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.8000001, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xauwh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(40, 40)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 520)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel:pivot_offset_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0.5)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel/MarginContainer:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_41t8i"]
+_data = {
+&"LeftPanel": SubResource("Animation_ko64p"),
+&"RESET": SubResource("Animation_xauwh")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ko64p"]
+
+[node name="Menu" type="Popup" unique_id=1157327055]
+transparent_bg = true
+oversampling_override = 1.0
+size = Vector2i(1920, 1080)
+visible = true
+transparent = true
+script = ExtResource("1_ko64p")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=451954838]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_41t8i")
+
+[node name="InvisibleBackground" type="PanelContainer" parent="." unique_id=1820076612]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ko64p")
+
+[node name="Panel" type="Panel" parent="." unique_id=600095739]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0, 0.5)
+theme_override_styles/panel = ExtResource("1_xauwh")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1232527010]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=806752109]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Panel" type="Panel" parent="Panel/MarginContainer/VBoxContainer" unique_id=761676989]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_ko64p")
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/Panel" unique_id=767396385]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Zgłoszenie: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="Panel/MarginContainer/VBoxContainer" unique_id=887115158]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("3_ko64p")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/VBoxContainer/Panel2" unique_id=1429312082]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/Panel2/MarginContainer" unique_id=1402417050]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/line_spacing = 6
+theme_override_font_sizes/font_size = 24
+text = "Zgłaszający: Lorem Ipsum
+
+Godzina: HH:MM
+
+Opis zdarzenia: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis tincidunt commodo. Duis sagittis, felis eget aliquet bibendum, ligula velit varius nulla, vitae facilisis tellus tellus nec nunc. Etiam cursus.  
+
+Poziom trudności: Łatwy"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="gui_input" from="InvisibleBackground" to="." method="_on_invisible_background_gui_input"]
+[connection signal="gui_input" from="Panel" to="." method="_on_panel_gui_input"]
+[connection signal="gui_input" from="Panel/MarginContainer" to="." method="_on_margin_container_gui_input"]

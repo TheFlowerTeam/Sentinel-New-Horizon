@@ -7,3 +7,5 @@ signal menu_opened(is_open:bool)
 signal menu_closed(should_unpause:bool)
 
 signal music_val_changed(bus:String, value: float)
+
+signal show_alert_desciption()
