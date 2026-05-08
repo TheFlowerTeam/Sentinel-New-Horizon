@@ -19,4 +19,4 @@ func _on_h_slider_value_changed(value: float) -> void:
 	var data = {"value": value, "bus": BUS}
 	SettingsManager._set_setting("Audio", data)
 	SaveLoad.contents_to_save[key] = value
-	SaveLoad._save()
+	SaveLoad.save_content()
