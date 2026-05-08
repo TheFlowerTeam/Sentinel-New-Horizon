@@ -92,6 +92,7 @@ func _pick_random(index: int) -> void:
 	# Reparenting i reset
 	d["vehicle"].reparent(d["active_follower"], false)
 	d["vehicle"].position = Vector2.ZERO
+	d["vehicle"].scale = Vector2.ONE
 	d["vehicle"].get_node("Sprite2D").modulate = Color.WHITE
 	d["vehicle"].get_node("Timer").visible = false
 	
