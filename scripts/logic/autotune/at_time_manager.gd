@@ -12,7 +12,7 @@ signal alert # Gdy ma pojawić się alert
 #region Variables
 
 var start_hour: int = 8
-var end_hour: int = 14
+var end_hour: int = 20
 var step: int = 15
 var clock_wait_time: float = 2.0 
 
