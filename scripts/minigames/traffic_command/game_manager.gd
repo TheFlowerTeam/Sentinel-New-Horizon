@@ -1,3 +1,4 @@
+#Napisany przy pomocy claude
 extends Node2D
 
 @onready var directions = [
@@ -55,7 +56,7 @@ func _process(delta: float) -> void:
 		
 		direction_timers[i] -= delta
 		var vehicle = directions[i]["vehicle"]
-		vehicle.get_node("Timer").text = str(snapped(direction_timers[i], 0.1))
+		vehicle.get_node("Timer").text = str(snapped(direction_timers[i], 0.1))+"s"
 		
 		# Proste mruganie na czerwono poniżej 5s
 		if direction_timers[i] <= 5.0:
