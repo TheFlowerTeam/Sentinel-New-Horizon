@@ -35,7 +35,6 @@ func update(upgrade: Node) -> void:
 	match upgrade.upgrade_id:
 		"longer_day":
 			GlobalData.bonus["day_duration"] += 120
-			GlobalData.emit_signal("")
 		"trust_level":
 			GlobalData.bonus["rep_multi"] += 0.5
 		"daily":

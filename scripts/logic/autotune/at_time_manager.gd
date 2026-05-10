@@ -3,7 +3,7 @@ extends Node
 #region Signals
 
 signal time_changed(hour, minutes) # Gdy zmeinia sie czas
-signal day_changed(day) # Gdy zmienia się dzień
+signal day_changed(day: int) # Gdy zmienia się dzień
 signal day_ended # Gdy kończy się dzień
 signal alert # Gdy ma pojawić się alert
 
@@ -69,6 +69,7 @@ func _on_timer_timeout() -> void:
 
 
 func _generate_alert_times() -> void:
+	alert_times.clear()
 	var times: Array[int] = []
 	var check_time: int = start_minutes
 	
@@ -79,6 +80,7 @@ func _generate_alert_times() -> void:
 	times.shuffle() 
 	for i in range(alerts_number):
 		alert_times.append(times[i])
+	print(alert_times)
 		
 				
 func start_timer() -> void:
@@ -92,6 +94,7 @@ func start_timer() -> void:
 func start_next_day() -> void:
 	current_minutes = start_minutes
 	current_day += 1
+	alerts_number = randi_range(5, 10)
 	_generate_alert_times()
 	day_changed.emit(current_day)
 	timer.start()

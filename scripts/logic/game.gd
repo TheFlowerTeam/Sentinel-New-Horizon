@@ -14,13 +14,11 @@ extends Node2D
 @onready var map: Sprite2D = %Map
 @onready var hud: CanvasLayer = %HUD
 
-var alerts_number: int
 var map_size: Vector2 
 
 #endregion
 
 func _ready() -> void:
-	alerts_number = randi_range(minimum_alerts, maximum_alerts)
 	map_size = map.texture.get_size()
 	TimeManager.connect("alert", _spawn_alert)
 	TimeManager.connect("day_ended", _delete_alerts)

@@ -1,6 +1,8 @@
 extends Node
 
 signal reputation_changed(new_value:int)
+
+@warning_ignore("unused_signal")
 signal bonus_changed()
 
 var reputation: int = 100
@@ -11,7 +13,21 @@ var bonus: Dictionary = {
 	"discount": 0,
 	"rep_multi": 1
 }
+var finished_minigame: int = 0
+var reputation_today: int = 0
 
+
+func _ready() -> void:
+	TimeManager.connect("day_changed", _reset_stats)
+	TimeManager.connect("day_ended", _daily_bonus)
+	
+func _reset_stats() -> void:
+	finished_minigame = 0
+	reputation_today = 0
+	
+func _daily_bonus() -> void:
+	update_reputation(bonus["daily"])
+	
 func change_score(score: int) -> void:
 	@warning_ignore("integer_division")
 	var points = score / 1000 
@@ -19,6 +35,7 @@ func change_score(score: int) -> void:
 	
 func update_reputation(value: int) -> void:
 	reputation += value * bonus["rep_multi"]
+	reputation_today += value * bonus["rep_multi"]
 	reputation_changed.emit(reputation)
 
 func force_update() -> void:

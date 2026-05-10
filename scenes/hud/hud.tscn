@@ -21,6 +21,26 @@
 [ext_resource type="StyleBox" uid="uid://uk20ssa1vdpg" path="res://styles/button_hover_pressed.tres" id="15_jjjd2"]
 [ext_resource type="PackedScene" uid="uid://cxunusqi14ce" path="res://scenes/hud/alert_panel.tscn" id="19_8vblv"]
 
+[sub_resource type="Animation" id="Animation_ccb21"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_udak2"]
+_data = {
+&"RESET": SubResource("Animation_ccb21")
+}
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_567j1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_567j1"]
@@ -33,6 +53,7 @@ notify_tscn = ExtResource("2_567j1")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=285725192]
 unique_name_in_owner = true
 root_node = NodePath("../Summary")
+libraries/ = SubResource("AnimationLibrary_udak2")
 libraries/HUD = ExtResource("3_jjjd2")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1634973730]
@@ -187,26 +208,27 @@ vertical_alignment = 1
 [node name="Summary" type="Panel" parent="." unique_id=1435918145]
 unique_name_in_owner = true
 process_mode = 3
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -401.0
-offset_top = -356.0
-offset_right = 401.0
-offset_bottom = 438.0
+offset_left = -11.0
+offset_top = -11.25
+offset_right = 11.0
+offset_bottom = 11.25
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0)
 theme_override_styles/panel = ExtResource("10_nhd55")
-metadata/_edit_group_ = true
 
 [node name="PanelSound" type="AudioStreamPlayer" parent="Summary" unique_id=38933155]
 unique_name_in_owner = true
 stream = ExtResource("11_8nkf1")
 
 [node name="MainContainer" type="MarginContainer" parent="Summary" unique_id=661476250]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -227,7 +249,9 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("11_q6mn5")
 
-[node name="Label" type="Label" parent="Summary/MainContainer/VBoxContainer/Panel" unique_id=712015398]
+[node name="SumDay" type="Label" parent="Summary/MainContainer/VBoxContainer/Panel" unique_id=712015398]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -241,7 +265,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Panel2" type="Panel" parent="Summary/MainContainer/VBoxContainer" unique_id=1978530378]
-custom_minimum_size = Vector2(0, 500)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("11_q6mn5")
@@ -262,26 +285,35 @@ theme_override_constants/margin_bottom = 25
 layout_mode = 2
 theme_override_constants/separation = 25
 
-[node name="Label2" type="Label" parent="Summary/MainContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=1358439960]
+[node name="SumEvents" type="Label" parent="Summary/MainContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=1358439960]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_uo2fv")
 theme_override_font_sizes/font_size = 48
 text = "Obsłużone zdarzenia:"
 
-[node name="Label3" type="Label" parent="Summary/MainContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=1444027746]
+[node name="SumRepPoints" type="Label" parent="Summary/MainContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=1444027746]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_uo2fv")
 theme_override_font_sizes/font_size = 48
 text = "Zdobyte RP:"
 
-[node name="Label4" type="Label" parent="Summary/MainContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=752786169]
+[node name="SumBonus" type="Label" parent="Summary/MainContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=752786169]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_uo2fv")
+theme_override_font_sizes/font_size = 48
+text = "Dodatkowe RP:"
+
+[node name="SumCane" type="Label" parent="Summary/MainContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=385292821]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_uo2fv")
 theme_override_font_sizes/font_size = 48
 text = "Dodatkowe RP:"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Summary/MainContainer/VBoxContainer" unique_id=51569067]
-custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 size_flags_vertical = 0
 alignment = 1
@@ -290,7 +322,7 @@ alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = ExtResource("10_nhd55")
 theme_override_styles/pressed = ExtResource("13_567j1")
@@ -302,7 +334,7 @@ text = "Kontynuuj"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = ExtResource("10_nhd55")
 theme_override_styles/pressed = ExtResource("13_567j1")
