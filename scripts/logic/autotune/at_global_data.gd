@@ -15,18 +15,23 @@ var bonus: Dictionary = {
 }
 var finished_minigame: int = 0
 var reputation_today: int = 0
-
+var penalty_today: int = 0
 
 func _ready() -> void:
 	TimeManager.connect("day_changed", _reset_stats)
-	TimeManager.connect("day_ended", _daily_bonus)
+	TimeManager.connect("day_ended", _daily_summary)
 	
 func _reset_stats() -> void:
 	finished_minigame = 0
 	reputation_today = 0
 	
-func _daily_bonus() -> void:
+func _daily_summary() -> void:
 	update_reputation(bonus["daily"])
+	penalty()
+	update_reputation(-penalty_today)
+	
+func penalty() -> void:
+	penalty_today = TimeManager.alerts_number - finished_minigame
 	
 func change_score(score: int) -> void:
 	@warning_ignore("integer_division")

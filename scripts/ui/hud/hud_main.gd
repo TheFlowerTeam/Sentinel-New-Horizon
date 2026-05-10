@@ -27,6 +27,7 @@ extends CanvasLayer
 @onready var sum_events: Label = %SumEvents
 @onready var sum_rep_points: Label = %SumRepPoints
 @onready var sum_bonus: Label = %SumBonus
+@onready var sum_penalty: Label = %SumPenalty
 
 #endregion
 
@@ -85,10 +86,11 @@ func _show_left_panel() -> void:
 	
 	
 func _day_summary() -> void:
-	sum_day.text = "Podsumowanuie dnia %02d" % TimeManager.current_day
-	sum_rep_points.text = "Bilans RP: %03d" % GlobalData.reputation_today
-	sum_events.text = "Ukończonych zgłoszeń: %02d" % GlobalData.finished_minigame
-	sum_bonus.text = "Codzienny bonus: %02d" % GlobalData.bonus["daily"]
+	sum_day.text = "Podsumowanuie dnia %s" % TimeManager.current_day
+	sum_rep_points.text = "Bilans RP: %s" % GlobalData.reputation_today
+	sum_events.text = "Ukończonych zgłoszeń: %s" % GlobalData.finished_minigame
+	sum_bonus.text = "Codzienny bonus: %s" % GlobalData.bonus["daily"]
+	sum_penalty.text = "Kara: -%s" % GlobalData.penalty_today
 	panel_sound.play()
 	animation_player.play("HUD/PanelShowUp")
 	pause()

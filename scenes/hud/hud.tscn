@@ -306,12 +306,13 @@ theme_override_fonts/font = ExtResource("5_uo2fv")
 theme_override_font_sizes/font_size = 48
 text = "Dodatkowe RP:"
 
-[node name="SumCane" type="Label" parent="Summary/MainContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=385292821]
+[node name="SumPenalty" type="Label" parent="Summary/MainContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=385292821]
 unique_name_in_owner = true
+modulate = Color(1, 0.13, 0.13, 1)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_uo2fv")
 theme_override_font_sizes/font_size = 48
-text = "Dodatkowe RP:"
+text = "Kara:"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Summary/MainContainer/VBoxContainer" unique_id=51569067]
 layout_mode = 2
