@@ -3,7 +3,7 @@ extends Node
 signal reputation_changed(new_value:int)
 signal bonus_changed()
 
-var reputation: int = 5
+var reputation: int = 100
 var tutorial_done: bool = false
 var bonus: Dictionary = {
 	"day_duration": 0,
@@ -14,7 +14,11 @@ var bonus: Dictionary = {
 
 func change_score(score: int) -> void:
 	@warning_ignore("integer_division")
-	reputation += score / 1000
+	var points = score / 1000 
+	update_reputation(points)
+	
+func update_reputation(value: int) -> void:
+	reputation += value * bonus["rep_multi"]
 	reputation_changed.emit(reputation)
 
 func force_update() -> void:

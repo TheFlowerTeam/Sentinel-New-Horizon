@@ -11,12 +11,14 @@ func _ready() -> void:
 
 func _on_upgrade_clicked(upgrade:Node) -> void:
 	if GlobalData.reputation >= upgrade.upgrade_price:
-		GlobalData.change_score(-upgrade.upgrade_price)
+		GlobalData.update_reputation(-upgrade.upgrade_price)
 		NotificationManager.notify("Zakupiono ulepszenie: %s" % \
 									upgrade.upgrade_name) 
 		upgrade.is_unlocked = true
-		unlocked_ids.append(upgrade.id)
+		unlocked_ids.append(upgrade.upgrade_id)
+		update(upgrade)
 		upgrade.queue_free()
+		check_upgrades()
 		
 	elif GlobalData.reputation < upgrade.upgrade_price:
 		NotificationManager.notify("Nie stać cię na zakup ulepszenia")
@@ -40,3 +42,4 @@ func update(upgrade: Node) -> void:
 			GlobalData.bonus["daily"] += 5
 		"discount":
 			GlobalData.bonus["discount"] += 0.2
+	GlobalData.emit_signal("bonus_changed")

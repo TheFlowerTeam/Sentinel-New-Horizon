@@ -28,6 +28,10 @@ func _ready() -> void:
 	
 	
 func update_ui(can_afford: bool, deps_met: bool) -> void:
+	upgrade_price -= upgrade_price * GlobalData.bonus["discount"]
+	upgrade_price_label.text = "%s Punktów Reputacji" % str(upgrade_price)
+	
+	
 	if is_unlocked: # Jeśli odblokowane
 		self.visible = true
 	elif deps_met: # Jeśli można kupić i wymagane ulepszenia już są kupione

@@ -22,16 +22,15 @@ transparent = true
 script = ExtResource("1_fkpcm")
 
 [node name="Menu" type="Panel" parent="." unique_id=2143825523]
-modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -5.0
-offset_top = -5.0
-offset_right = 6.0
-offset_bottom = 5.0
+offset_left = -830.5
+offset_top = -410.5
+offset_right = 830.5
+offset_bottom = 410.5
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0)
@@ -40,28 +39,12 @@ size_flags_vertical = 4
 theme_override_styles/panel = ExtResource("2_maivf")
 
 [node name="MainContainer" type="Control" parent="Menu" unique_id=993206144]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Close" type="Button" parent="Menu/MainContainer" unique_id=520370973]
-process_mode = 3
-layout_mode = 0
-offset_left = 14.5
-offset_top = 14.5
-offset_right = 108.5
-offset_bottom = 108.5
-pivot_offset = Vector2(282.5, 2.5)
-theme_override_styles/normal = ExtResource("3_j4o8j")
-theme_override_styles/pressed = ExtResource("4_fkpcm")
-theme_override_styles/hover = ExtResource("5_b7e55")
-theme_override_styles/hover_pressed = ExtResource("6_y3kab")
-icon = ExtResource("7_j4o8j")
-icon_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu/MainContainer" unique_id=311808972]
 layout_mode = 1
@@ -106,12 +89,35 @@ upgrades_effect = "- Mnożnik punktów reputacji wzrasta o 0.5 !"
 
 [node name="Panel3" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=1839882331 instance=ExtResource("9_b7e55")]
 layout_mode = 2
+upgrade_id = "trust_level"
+upgrade_price = 25
+upgrade_name = "Nowe Oprogramowanie"
+upgrade_description = "Sentinel zaczął na siebie pracować, a mieszkańcy mu ufają. Od teraz na początku każdego dnia otrzymasz dodatkowe [color=#ff5454]punkty reputacji.[/color]"
+upgrades_effect = "- Na początku każdego dnia otzrymasz 5 punktów reputacji"
 
 [node name="Panel4" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=1975302053 instance=ExtResource("9_b7e55")]
 layout_mode = 2
+upgrade_id = "discount"
+upgrade_price = 25
+upgrade_name = "TechnoZone"
+upgrade_description = "Profesor Kliś pozyskał wsparcie z jednej ze szkół w której prowadzi zajęcia. Tamtejsze koło naukowe chętnie pomoże w rozwoju Sentinela."
+upgrades_effect = "- Zniżka na ulepszenia o [color=#ff5454]20%.[/color]"
 
-[node name="Panel5" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=2007689573 instance=ExtResource("9_b7e55")]
-layout_mode = 2
+[node name="Close" type="Button" parent="Menu/MainContainer" unique_id=520370973]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 0
+offset_left = 14.5
+offset_top = 14.5
+offset_right = 108.5
+offset_bottom = 108.5
+pivot_offset = Vector2(282.5, 2.5)
+theme_override_styles/normal = ExtResource("3_j4o8j")
+theme_override_styles/pressed = ExtResource("4_fkpcm")
+theme_override_styles/hover = ExtResource("5_b7e55")
+theme_override_styles/hover_pressed = ExtResource("6_y3kab")
+icon = ExtResource("7_j4o8j")
+icon_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1800047558]
 unique_name_in_owner = true

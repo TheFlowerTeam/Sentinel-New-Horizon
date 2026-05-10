@@ -32,7 +32,9 @@ var alert_times: Array[int]
 #region Timer
 
 func _ready() -> void:
-	start_minutes = start_hour * 60
+	GlobalData.connect("bonus_changed", _update_end_time)
+	
+	start_minutes = start_hour * 60 
 	end_minutes = end_hour * 60
 	
 	current_minutes = start_minutes
@@ -43,7 +45,9 @@ func _ready() -> void:
 	alerts_number = randi_range(5, 10)
 	_generate_alert_times()
 
-
+func _update_end_time() -> void:
+	end_minutes	= end_hour * 60 + GlobalData.bonus["day_duration"]
+	
 func _on_timer_timeout() -> void:
 	current_minutes += step
 	
@@ -62,6 +66,7 @@ func _on_timer_timeout() -> void:
 	
 	if current_minutes == end_minutes - 60:
 		NotificationManager.notify("Twoja zmiana dobiega końca")
+
 
 func _generate_alert_times() -> void:
 	var times: Array[int] = []
