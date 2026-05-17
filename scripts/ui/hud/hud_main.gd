@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-# Notification Sound Effect by SoundShelfStudio from Pixabay
+# Notification Sound Effect by DRAGON-STUDIO from Pixabay
 
 #region Export
 
@@ -21,25 +21,32 @@ extends CanvasLayer
 @onready var achivements_menu: Popup = %AchivementsMenu
 @onready var panel_sound: AudioStreamPlayer = %PanelSound
 @onready var left_menu: Popup = %LeftMenu
+@onready var rep_points: Label = %RepPoints
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var sum_day: Label = %SumDay
+@onready var sum_events: Label = %SumEvents
+@onready var sum_rep_points: Label = %SumRepPoints
+@onready var sum_bonus: Label = %SumBonus
+@onready var sum_penalty: Label = %SumPenalty
 
 #endregion
 
 #region Setup
 
 func _ready() -> void:
-	GameEvents.connect("show_alert_description", show_left_panel)
-	TimeManager.connect("time_changed", update_time)
-	TimeManager.connect("day_changed", update_day)
-	TimeManager.connect("day_ended", day_summary)
+	GlobalData.connect("reputation_changed", _update_reputation)
+	GlobalData.force_update() 
+	GameEvents.connect("show_alert_description", _show_left_panel)
+	TimeManager.connect("time_changed", _update_time)
+	TimeManager.connect("day_changed", _update_day)
+	TimeManager.connect("day_ended", _day_summary)
 	TimeManager.force_update()
-	TimeManager.start_timer()
 	
 #endregion
 
 #region Clock
 
 var animation_timer: float = 0.0
-
 
 func _process(delta: float) -> void:
 	if TimeManager.current_minutes >= TimeManager.end_minutes - 60:
@@ -51,11 +58,11 @@ func _process(delta: float) -> void:
 			clock.modulate = Color.WHITE
 
 
-func update_time(hour, minutes) -> void:
+func _update_time(hour, minutes) -> void:
 	clock.text = "%02d : %02d" % [hour, minutes]
 
 
-func update_day(day) -> void: # Funkcja aktualizująca dzień
+func _update_day(day) -> void: # Funkcja aktualizująca dzień
 	day_label.text = "Dzień: %s" % day
 
 #endregion
@@ -67,19 +74,24 @@ func _on_upgrades_button_button_down() -> void:
 
 
 func _on_continue_button_button_down() -> void:
-	notify("Zapisano grę !")
-	animation_player.play_backwards("HUD/PanelShowUp")
+	NotificationManager.notify("Zapisano grę !")
+	animation_player.play_backwards("PanelShowUp")
 	play()
 	TimeManager.start_next_day()
 	
 	
-func show_left_panel() -> void:
+func _show_left_panel() -> void:
 	left_menu.open_popup()
 	
 	
-func day_summary() -> void:
+func _day_summary() -> void:
+	sum_day.text = "Podsumowanuie dnia %s" % TimeManager.current_day
+	sum_rep_points.text = "Bilans RP: %s" % GlobalData.reputation_today
+	sum_events.text = "Ukończonych zgłoszeń: %s" % GlobalData.finished_minigame
+	sum_bonus.text = "Codzienny bonus: %s" % GlobalData.bonus["daily"]
+	sum_penalty.text = "Kara: -%s" % GlobalData.penalty_today
 	panel_sound.play()
-	animation_player.play("HUD/PanelShowUp")
+	animation_player.play("PanelShowUp")
 	pause()
 
 
@@ -87,17 +99,18 @@ func day_summary() -> void:
 
 #region Stuff
 
-func notify(message:String) -> void: # Generator powiadomień
-	var popup = notify_tscn.instantiate() 
-	popup.setup(message)
-	notify_container.add_child(popup)
-
-
 func pause() -> void: # Zatrzymaj grę
 	get_tree().paused = true
 
 	
 func play() -> void: # Wznów grę
 	get_tree().paused = false
+
+#endregion
+
+#region Counters
+
+func _update_reputation(value: int) -> void:
+	rep_points.text = "%03d" % value 
 
 #endregion

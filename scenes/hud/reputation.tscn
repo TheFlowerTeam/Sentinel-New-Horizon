@@ -1,12 +1,21 @@
 [gd_scene format=3 uid="uid://b22q2kpstfu5n"]
 
-[ext_resource type="Script" uid="uid://8gce5x4xmlvg" path="res://scripts/logic/reputation.gd" id="1_q51oe"]
+[sub_resource type="GDScript" id="GDScript_rsyt5"]
+script/source = "extends Node
+
+func _ready():
+	update_label()
+
+func update_label():
+	$Label.text = \"rep: \" + str(GlobalData.scores / 1000)
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^Wypisywanie reputacji^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"
 
 [sub_resource type="LabelSettings" id="LabelSettings_rsyt5"]
 font_size = 41
 
 [node name="Reputation" type="Node2D" unique_id=929882821]
-script = ExtResource("1_q51oe")
+script = SubResource("GDScript_rsyt5")
 
 [node name="Label" type="Label" parent="." unique_id=1840287756]
 offset_left = 844.0

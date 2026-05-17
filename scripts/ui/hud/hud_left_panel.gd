@@ -10,13 +10,14 @@ extends Popup
 @onready var date_label: Label = %Date
 
 var path_to_scene: String
-
+var last_alert: Node2D
 
 func _ready() -> void:
 	GameEvents.connect("show_alert_description", open_popup)
 	
-func open_popup(titl:String, desc:String, dif:String, date:String, path:String) -> void:
+func open_popup(sender:Node2D, titl:String, desc:String, dif:String, date:String, path:String) -> void:
 	self.show()
+	last_alert = sender
 	animation_player.play("LeftPanel")
 	title_label.text = titl
 	description_label.text = desc
@@ -31,6 +32,21 @@ func _on_invisible_background_gui_input(event: InputEvent) -> void:
 			await animation_player.animation_finished
 			self.hide()
 			
-
 func _on_accept_pressed() -> void:
-	AtTransitionScene.fade_to_scene(path_to_scene)
+	if is_instance_valid(last_alert):
+		last_alert.get_parent().remove_child(last_alert)
+		last_alert.queue_free()
+	GameEvents.minigame_started.emit()
+	_load_minigame()
+	
+	
+	
+func _load_minigame() -> void:
+	TransitionScene.fade_to_scene(path_to_scene)
+	self.hide()
+
+
+func _on_close_pressed() -> void:
+	animation_player.play_backwards("LeftPanel")
+	await animation_player.animation_finished
+	self.hide()

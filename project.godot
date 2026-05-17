@@ -28,7 +28,8 @@ TimeManager="*uid://bw7vjowvy2bw7"
 SaveLoad="*uid://j4cw5ew3xkio"
 BackgroundMusic="*uid://uqlpwqjpv552"
 Signals="*uid://da7o6msmrto8m"
-AtTransitionScene="*uid://dida4s0n1jhx5"
+TransitionScene="*uid://dida4s0n1jhx5"
+NotificationManager="*uid://b30lvarff0hyc"
 
 [display]
 

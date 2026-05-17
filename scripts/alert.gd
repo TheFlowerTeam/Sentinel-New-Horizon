@@ -12,10 +12,16 @@ Musisz szybko decydować, kogo przepuścić, a kogo zatrzymać, zanim skończy
 się czas i zablokuje kolejkę."""
 	},
 	"traffic": {
-		"path": "res://scenes/minigames/traffic-command/traffic-command.tscn", # Zakładam, że tu ma być inna ścieżka
+		"path": "res://scenes/minigames/mini_game.tscn", # Zakładam, że tu ma być inna ścieżka
 		"difficulty": "umiarkowany",
 		"description": """Zarządzaj ruchem drogowym, zachowując przy tym płynność,
 zapobiegaj kolizjom, aby nie zakorkować miasta i uniknąć katastrofy."""
+	},
+	"raport": {
+		"path": "res://scenes/minigames/raport_writer/game_level.tscn", 
+		"difficulty": "umiarkowany",
+		"description": """Pisz raporty, robiąc to jaknajdokładniej, a jednocześnie
+		robiąc to starannie i szybko."""
 	}
 }
 var option: Dictionary
@@ -26,6 +32,7 @@ var date: String
 var path: String
 
 func _ready() -> void:
+	
 	var keys: Array = options.keys()
 	keys.shuffle()	
 	alert_number += get_tree().get_node_count_in_group("alert")
@@ -45,4 +52,4 @@ func _ready() -> void:
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
-			GameEvents.show_alert_description.emit(title, desc, difficulty, date, path)
+			GameEvents.show_alert_description.emit(self, title, desc, difficulty, date, path)
