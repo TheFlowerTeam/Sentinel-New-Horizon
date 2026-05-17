@@ -35,7 +35,7 @@ func _ready() -> void:
 	
 func _on_wyjscie_pressed() -> void:
 	pass
-	AtTransitionScene.fade_to_scene("res://scenes/menu/main_menu.tscn")
+	TransitionScene.fade_to_scene("res://scenes/menu/main_menu.tscn")
 	
 	
 func _on_apply_pressed() -> void:
