@@ -1,18 +1,14 @@
 #Napisany przy pomocy claude
-extends Node2D
+extends Node
 
-@onready var directions = [
-	{ "followers": [$Left/Right/PathFollow2D, $Left/Straight/PathFollow2D, $Left/Left/PathFollow2D], "paths": [$Left/Right, $Left/Straight, $Left/Left], "vehicle": $Left/Right/PathFollow2D/Node2D, "active_index": -1, "active_follower": null },
-	{ "followers": [$Down/Right/PathFollow2D, $Down/Straight/PathFollow2D, $Down/Left/PathFollow2D], "paths": [$Down/Right, $Down/Straight, $Down/Left], "vehicle": $Down/Right/PathFollow2D/Node2D, "active_index": -1, "active_follower": null },
-	{ "followers": [$Right/Right/PathFollow2D, $Right/Straight/PathFollow2D, $Right/Left/PathFollow2D], "paths": [$Right/Right, $Right/Straight, $Right/Left], "vehicle": $Right/Right/PathFollow2D/Node2D, "active_index": -1, "active_follower": null },
-	{ "followers": [$Up/Right/PathFollow2D, $Up/Straight/PathFollow2D, $Up/Left/PathFollow2D], "paths": [$Up/Right, $Up/Straight, $Up/Left], "vehicle": $Up/Right/PathFollow2D/Node2D, "active_index": -1, "active_follower": null }
-]
+var directions: Array = []
 
 var direction_timers: Array[float] = [10.0, 10.0, 10.0, 10.0]
 var timer_limits: Array[float] = [10.0, 10.0, 10.0, 10.0]
 var timer_active: Array[bool] = [false, false, false, false]
 
 @onready var ui = $Menu
+signal crash
 
 func _ready() -> void:
 	directions = [
@@ -136,3 +132,4 @@ func _on_route_finished(index: int) -> void:
 
 func _on_crash() -> void:
 	get_tree().paused = true
+	crash.emit()

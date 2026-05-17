@@ -66,9 +66,10 @@ func _ready() -> void:
 	]
 	
 	for d in directions:
-		var area = d["vehicle"].get_node("Area2D")
+		var area: Node
+		area = d["vehicle"].get_node("Area2D")
 		area.crashed.connect(_on_crash)
-	
+		#area.connect("crashed", _on_crash)
 	for i in range(directions.size()):
 		_pick_random(i)
 
