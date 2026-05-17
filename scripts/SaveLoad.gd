@@ -8,8 +8,15 @@ const DEFAULT_SAVE: Dictionary = {
 	"volume_music": 0.5,
 	"volume_sfx": 0.5,
 	"days": 1,
-	"minutes": 480
-	#tutaj wpisuje dane które ma zapisywać
+	"minutes": 480,
+	"reputation": 100,
+	"bonus": {
+		"day_duration": 0,
+		"daily": 0,
+		"discount": 0,
+		"rep_multi": 1
+	},
+	"unlocked_upgrades": [],
 }
 
 var contents_to_save: Dictionary = DEFAULT_SAVE.duplicate()
@@ -18,7 +25,6 @@ func _reset():
 	contents_to_save = DEFAULT_SAVE.duplicate()
 
 func save_content():
-	print_stack()
 	var file = FileAccess.open_encrypted_with_pass(SAVE_LOCATION, FileAccess.WRITE, PASS)
 	if file == null:
 		push_error("Nie można otworzyć pliku do zapisu: %s" % FileAccess.get_open_error())

@@ -14,7 +14,7 @@ signal alert # Gdy ma pojawić się alert
 var start_hour: int = 8
 var end_hour: int = 16
 var step: int = 15
-var clock_wait_time: float = 0.5
+var clock_wait_time: float = 0.25
 
 var current_day: int = 1
 var current_minutes: int
@@ -49,11 +49,12 @@ func _ready() -> void:
 
 func initialize() -> void:
 	SaveLoad.load_content()
-	if SaveLoad.contents_to_save.minutes >= end_minutes:
-		current_minutes = SaveLoad.contents_to_save.minutes - 30
-	else:
-		current_minutes = SaveLoad.contents_to_save.minutes
+	current_minutes = SaveLoad.contents_to_save.minutes
 	current_day = SaveLoad.contents_to_save.days
+	
+	if current_minutes >= end_minutes:
+		start_next_day()
+		return
 	
 	time_changed.emit(start_hour, 0)
 	
@@ -65,9 +66,9 @@ func _start_time() -> void:
 
 func _stop_time() -> void:
 	timer.process_mode = Node.PROCESS_MODE_DISABLED
-	
+
 func _update_end_time() -> void:
-	end_minutes	= end_hour * 60 + GlobalData.bonus["day_duration"]
+	end_minutes = end_hour * 60 + GlobalData.bonus["day_duration"]
 
 func _on_timer_timeout() -> void:
 	current_minutes += step
@@ -112,18 +113,24 @@ func start_timer() -> void:
 		timer.wait_time = clock_wait_time
 		timer.autostart = true
 		timer.timeout.connect(_on_timer_timeout)
-		add_child(timer)	
+		add_child(timer)
 
 func start_next_day() -> void:
+	if SaveLoad.contents_to_save.minutes >= end_minutes:
+		SaveLoad.load_content()
+		current_day = SaveLoad.contents_to_save.days
 	current_minutes = start_minutes
 	current_day += 1
 	SaveLoad.contents_to_save.minutes = current_minutes
 	SaveLoad.contents_to_save.days = current_day
-	SaveLoad.save_content()
 	alerts_number = randi_range(5, 10)
+	SaveLoad.save_content()
 	_generate_alert_times()
 	day_changed.emit(current_day)
-	timer.start()
+	if timer == null:
+		start_timer()
+	else:
+		timer.start()
 
 func force_update() -> void:
 	@warning_ignore("integer_division")
