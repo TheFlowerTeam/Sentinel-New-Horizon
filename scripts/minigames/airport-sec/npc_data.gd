@@ -51,23 +51,36 @@ func generate_npc() -> void:
 func _image(category:String) -> String:
 	var path = "res://assets/assets/airport-sec/npc" 
 	var img_path = ""
-	var img_list:PackedStringArray
-	var correct_imgs:Array[String] = []
+	var img_list: PackedStringArray
+	var correct_imgs: Array[String] = []
+	
 	if category == 'male' || category == 'female':
 		path += "/%s" % category
 	else:
 		path += "/%s" % ["male", "female"].pick_random()
 			
-	var file = DirAccess
-	file = DirAccess.open(path)
-	img_list = file.get_files() 
-	
-	if !img_list.is_empty():
-		for f in img_list:
-			pass
-			if f.ends_with(".png"):
-				correct_imgs.append(f)
-		img_path = "%s/%s" % [path, correct_imgs.pick_random()]
+	var dir = DirAccess.open(path)
+	if dir:
+		img_list = dir.get_files() 
+		
+		if !img_list.is_empty():
+			for f in img_list:
+				# Akceptujemy pliki .png bezpośrednio, ale też z rozszerzeniami .remap lub .import po eksporcie
+				if f.ends_with(".png") or f.ends_with(".png.remap") or f.ends_with(".png.import"):
+					# Oczyszczamy nazwę pliku, żeby zawsze kończyła się na zwykłe .png
+					var clean_name = f.replace(".remap", "").replace(".import", "")
+					if not correct_imgs.has(clean_name):
+						correct_imgs.append(clean_name)
+						
+			if not correct_imgs.is_empty():
+				img_path = "%s/%s" % [path, correct_imgs.pick_random()]
+				
+	# Koło ratunkowe: jeśli jakimś cudem tablica nadal jest pusta, zapobiegaj crashowi
+	if img_path == "":
+		print("KRYTYCZNY BŁĄD: Nie znaleziono żadnego obrazka w: ", path)
+		# Podmień poniższą ścieżkę na jakąś domyślną grafikę awaryjną, którą masz na stałe w projekcie
+		return "res://icon.svg" 
+		
 	return img_path
 
 func _caesar(first:String, second:String, npc_id:String) -> String:
@@ -118,13 +131,19 @@ func wrong_img() -> String:
 		path = img.get_base_dir()
 	
 	var dir = DirAccess.open(path)
+	if not dir:
+		return img
+		
 	var all_files = dir.get_files()
 	var valid_imgs: Array[String] = []
 	
 	for f in all_files:
-		var full_path = path + "/" + f
-		if f.ends_with(".png") and full_path != img:
-			valid_imgs.append(full_path)
+		if f.ends_with(".png") or f.ends_with(".png.remap") or f.ends_with(".png.import"):
+			var clean_name = f.replace(".remap", "").replace(".import", "")
+			var full_path = path + "/" + clean_name
+			
+			if full_path != img and not valid_imgs.has(full_path):
+				valid_imgs.append(full_path)
 	
 	if valid_imgs.is_empty():
 		return img 

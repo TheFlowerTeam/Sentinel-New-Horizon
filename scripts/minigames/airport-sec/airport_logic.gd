@@ -210,6 +210,8 @@ func load_category(character:NPC, category:Variant) -> void:
 		
 	if category == 'img':
 		for node in group_nodes:
+			var tex = load(character.img)
+			print(tex)
 			node.texture = load(character.img)
 	else:
 		for node in group_nodes:
